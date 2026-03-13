@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MDXComponents } from "mdx/types";
+import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 
 import { cn } from "@/lib/classes";
 
@@ -22,6 +22,8 @@ import { ComponentCodePreview } from "./components/component-code-preview";
 
 // Blocks
 import { BlockShowcase } from "./components/block-showcase";
+
+type MDXComponents = NonNullable<MDXRemoteProps["components"]>;
 
 export const mdxComponents: MDXComponents = {
   h1: ({ className, ...props }: React.ComponentProps<"h1">) => (
