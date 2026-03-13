@@ -1,6 +1,6 @@
 # Dusk UI — Early Plan v2
 
-> Based on deep analysis of Pure UI ([MusKRI/pure-ui](https://github.com/MusKRI/pure-ui))  
+> Based on deep analysis of Dusk UI ([mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui))  
 > Approach: **Fork & Rebrand** — not greenfield  
 > Status: Draft — awaiting discussion before final plan  
 > Date: March 13, 2026
@@ -9,10 +9,10 @@
 
 ## Approach
 
-Dusk UI starts as a fork of Pure UI. The codebase is production-quality, the architecture is already correct, and the animation system is exactly what we want. Instead of rebuilding from scratch, we:
+Dusk UI starts as a fork of Dusk UI. The codebase is production-quality, the architecture is already correct, and the animation system is exactly what we want. Instead of rebuilding from scratch, we:
 
 1. Fork the repo
-2. Run a full rebrand (Phase 1) — remove all traces of Pure UI, Krishna, and MusKRI
+2. Run a full rebrand (Phase 1) — remove all traces of Dusk UI, Mohamed, and mohamed-g-shoaib
 3. Incrementally evolve the library into Dusk UI's own identity
 
 This saves weeks of scaffolding work and lets us focus immediately on design and component additions.
@@ -25,7 +25,7 @@ The previous early plan described a **greenfield build** from scratch. That is n
 
 | Old Approach | New Approach |
 |---|---|
-| Create new Next.js app | Fork Pure UI repo |
+| Create new Next.js app | Fork Dusk UI repo |
 | Set up Tailwind v4 from scratch | Already configured |
 | Build animation system | Already built — adopt it |
 | Set up shadcn registry pipeline | Already working |
@@ -36,12 +36,12 @@ The previous early plan described a **greenfield build** from scratch. That is n
 
 ## Phase 1 — Fork & Rebrand
 
-This phase has one goal: **zero traces of Pure UI remain**. The app must build cleanly and look like Dusk UI from the first commit.
+This phase has one goal: **zero traces of Dusk UI remain**. The app must build cleanly and look like Dusk UI from the first commit.
 
 ### Step 1 — Fork
 
 ```bash
-# Fork MusKRI/pure-ui to your GitHub account
+# Fork mohamed-g-shoaib/dusk-ui to your GitHub account
 # Clone locally
 git clone https://github.com/<your-username>/dusk-ui
 cd dusk-ui
@@ -51,16 +51,16 @@ cd dusk-ui
 
 ### Step 2 — Delete Infrastructure Files
 
-These files are Pure UI's deployment infrastructure (Docker VPS deploy). Dusk UI will deploy to Vercel — none of these are needed.
+These files are Dusk UI's deployment infrastructure (Docker VPS deploy). Dusk UI will deploy to Vercel — none of these are needed.
 
 | File/Folder | Reason to Delete |
 |---|---|
-| `Dockerfile` | Pure UI deploys via Docker on a VPS |
+| `Dockerfile` | Dusk UI deploys via Docker on a VPS |
 | `docker-compose.yml` | Same |
 | `proxy.ts` | Local proxy for the VPS Docker setup |
-| `.github/workflows/deploy.yml` | SSH + `docker compose up` to Krishna's server |
+| `.github/workflows/deploy.yml` | SSH + `docker compose up` to Mohamed's server |
 | `.github/` | Delete the entire folder — no workflows needed initially |
-| `.env.example` | Contains `NEXT_PUBLIC_OPENPANEL_CLIENT_ID` (Krishna's analytics slot) |
+| `.env.example` | Contains `NEXT_PUBLIC_OPENPANEL_CLIENT_ID` (Mohamed's analytics slot) |
 
 ```bash
 rm Dockerfile docker-compose.yml proxy.ts .env.example
@@ -71,10 +71,10 @@ rm -rf .github
 
 ### Step 3 — Rename the Registry Folder
 
-The entire component library lives under `src/registry/pure-ui/`. Rename it:
+The entire component library lives under `src/registry/dusk-ui/`. Rename it:
 
 ```bash
-mv src/registry/pure-ui src/registry/dusk-ui
+mv src/registry/dusk-ui src/registry/dusk-ui
 ```
 
 This renames the folder but breaks all imports. Fix with a global find-and-replace in the next step.
@@ -87,16 +87,16 @@ Run these replacements across the **entire repo** (use your editor's global sear
 
 | Find | Replace | Scope |
 |---|---|---|
-| `@/registry/pure-ui/` | `@/registry/dusk-ui/` | All `.tsx` `.ts` `.mdx` files |
-| `"pure-ui"` | `"dusk-ui"` | All files |
-| `"Pure UI"` | `"Dusk UI"` | All files |
-| `PureUI` | `DuskUI` | All files |
-| `pureUI` | `duskUI` | All files |
-| `pure-ui` (kebab, non-path) | `dusk-ui` | All files |
-| `pure.kam-ui.com` | `dusk-ui.com` (or placeholder) | All files |
-| `MusKRI` | `<your-github-username>` | All files |
-| `Krishna` | `<your-name>` | All files |
-| `Built by Krishna` | `Built by Mohamed` | `layout.tsx` |
+| `@/registry/dusk-ui/` | `@/registry/dusk-ui/` | All `.tsx` `.ts` `.mdx` files |
+| `"dusk-ui"` | `"dusk-ui"` | All files |
+| `"Dusk UI"` | `"Dusk UI"` | All files |
+| `DuskUI` | `DuskUI` | All files |
+| `duskUI` | `duskUI` | All files |
+| `dusk-ui` (kebab, non-path) | `dusk-ui` | All files |
+| `dusk-ui.vercel.app` | `dusk-ui.com` (or placeholder) | All files |
+| `mohamed-g-shoaib` | `<your-github-username>` | All files |
+| `Mohamed` | `<your-name>` | All files |
+| `Built by Mohamed` | `Built by Mohamed` | `layout.tsx` |
 
 > ⚠️ After running these, do a repo-wide search for `pure` and `Pure` to catch any stragglers.
 
@@ -207,7 +207,7 @@ export const registry = {
 
 #### `src/core/events/openpanel.tsx` — Analytics
 
-**Option A (Recommended for now):** Strip analytics entirely to avoid Krishna's key being active:
+**Option A (Recommended for now):** Strip analytics entirely to avoid Mohamed's key being active:
 ```tsx
 // Replace entire file contents with:
 export const Analytics = () => null;
@@ -222,11 +222,11 @@ Then remove `@openpanel/nextjs` and `@wandry/analytics-sdk` from `package.json` 
 
 Every MDX file contains installation commands like:
 ```bash
-npx shadcn add https://pure.kam-ui.com/r/button.json
+npx shadcn add https://dusk-ui.vercel.app/r/button.json
 ```
 Bulk replace across all content files:
 ```
-https://pure.kam-ui.com/r/  →  https://dusk-ui.com/r/
+https://dusk-ui.vercel.app/r/  →  https://dusk-ui.com/r/
 ```
 
 ---
@@ -251,7 +251,7 @@ Do a final visual pass on:
 - [ ] Home page tagline is yours
 - [ ] GitHub button links to your repo
 - [ ] No console errors
-- [ ] No "Pure UI" or "Krishna" or "MusKRI" visible anywhere
+- [ ] No "Dusk UI" or "Mohamed" or "mohamed-g-shoaib" visible anywhere
 - [ ] `pnpm build` passes cleanly
 
 ---
@@ -259,17 +259,17 @@ Do a final visual pass on:
 ### Phase 1 Checklist (Ordered)
 
 ```
-[ ] 1.  Fork MusKRI/pure-ui → your GitHub account, rename to dusk-ui
+[ ] 1.  Fork mohamed-g-shoaib/dusk-ui → your GitHub account, rename to dusk-ui
 [ ] 2.  Clone locally
 [ ] 3.  Delete: Dockerfile, docker-compose.yml, proxy.ts, .env.example
 [ ] 4.  Delete: .github/ (entire folder)
-[ ] 5.  mv src/registry/pure-ui → src/registry/dusk-ui
+[ ] 5.  mv src/registry/dusk-ui → src/registry/dusk-ui
 [ ] 6.  Global find-replace all brand strings (see table in Step 4)
 [ ] 7.  Repo-wide search for "pure" / "Pure" — catch stragglers
 [ ] 8.  package.json: name → "dusk-ui", remove Docker scripts
 [ ] 9.  src/app/layout.tsx: title + description
 [ ] 10. src/app/(home)/page.tsx: RollingText + tagline
-[ ] 11. src/core/components/composed/logo.tsx: rename PureUILogo → DuskUILogo
+[ ] 11. src/core/components/composed/logo.tsx: rename DuskUILogo → DuskUILogo
 [ ] 12. github-button.tsx: repo URL → your repo
 [ ] 13. components.json: registry URL → dusk-ui.com
 [ ] 14. src/registry/dusk-ui/registry.ts: name, homepage, import names
@@ -291,9 +291,9 @@ Once the rebrand is done and the build is clean, the next layer is Dusk UI's own
 |---|---|
 | Logo | Design a Dusk UI SVG logo, replace the grid SVG in `logo.tsx` |
 | Favicon | Replace `src/app/favicon.ico` |
-| Brand color | Decide: monochrome (like Pure UI) or a distinct color (violet, amber, etc.) |
+| Brand color | Decide: monochrome (like Dusk UI) or a distinct color (violet, amber, etc.) |
 | Dark mode tokens | Finalize `.dark {}` OKLCH values in `globals.css` |
-| Typography | Decide on heading font — Pure UI uses Chillax; keep or replace |
+| Typography | Decide on heading font — Dusk UI uses Chillax; keep or replace |
 | Tagline | Finalize the hero tagline on `(home)/page.tsx` |
 | og:image / SEO | Add `opengraph-image.tsx` to the app route |
 
@@ -301,7 +301,7 @@ Once the rebrand is done and the build is clean, the next layer is Dusk UI's own
 
 ## Phase 3 — Incremental Component Evolution
 
-After the visual identity is set, we begin diverging from Pure UI component by component. Not all 27 need to change — only those where Dusk UI has a different design opinion.
+After the visual identity is set, we begin diverging from Dusk UI component by component. Not all 27 need to change — only those where Dusk UI has a different design opinion.
 
 Priority order (most visible → least visible):
 
@@ -318,7 +318,7 @@ Priority order (most visible → least visible):
 
 ## Phase 4 — New Components
 
-Components Pure UI does not have that Dusk UI will add. **To be prioritized together after Phase 3 is stable.**
+Components Dusk UI does not have that Dusk UI will add. **To be prioritized together after Phase 3 is stable.**
 
 Candidates:
 - `Alert` / `AlertDialog`
@@ -340,10 +340,10 @@ These do not block Phase 1. They need answers before we write the final plan.
 
 | # | Question | Options |
 |---|---|---|
-| Q1 | **Docs framework** | A: Keep `next-mdx-remote` (Pure UI way — full control) · B: Migrate to Fumadocs (batteries-included) |
-| Q2 | **Icon set** | A: Keep `@tabler/icons-react` (already in Pure UI) · B: `lucide-react` · C: `@hugeicons/react` |
-| Q3 | **Typography / heading font** | A: Keep Chillax (Pure UI) · B: Replace with a font that fits "Dusk" identity |
-| Q4 | **Brand color** | A: Monochrome/neutral (timeless, like Pure UI) · B: Distinct color (violet, amber, slate-blue, etc.) |
+| Q1 | **Docs framework** | A: Keep `next-mdx-remote` (Dusk UI way — full control) · B: Migrate to Fumadocs (batteries-included) |
+| Q2 | **Icon set** | A: Keep `@tabler/icons-react` (already in Dusk UI) · B: `lucide-react` · C: `@hugeicons/react` |
+| Q3 | **Typography / heading font** | A: Keep Chillax (Dusk UI) · B: Replace with a font that fits "Dusk" identity |
+| Q4 | **Brand color** | A: Monochrome/neutral (timeless, like Dusk UI) · B: Distinct color (violet, amber, slate-blue, etc.) |
 | Q5 | **Toast API** | A: Keep Zustand imperative `toast.add(...)` · B: React context provider |
 | Q6 | **Analytics** | A: OpenPanel (register own account) · B: Vercel Analytics · C: Strip entirely for now |
 | Q7 | **`radius` variant on Button** | A: Keep as first-class `tv()` axis · B: Remove, leave to `className` |
@@ -355,7 +355,7 @@ These do not block Phase 1. They need answers before we write the final plan.
 
 These are **locked** — not up for discussion:
 
-- Fork Pure UI as the starting point (not greenfield)
+- Fork Dusk UI as the starting point (not greenfield)
 - Base UI 1.0 as primitive layer
 - `tailwind-variants` (`tv()`) — not CVA
 - CSS `data-starting-style` / `data-ending-style` for all component animations

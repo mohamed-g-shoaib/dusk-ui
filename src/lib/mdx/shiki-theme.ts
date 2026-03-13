@@ -1,7 +1,7 @@
-// Custom theme that integrates with our Pure UI design system
+// Custom theme that integrates with our Dusk UI design system
 // Minimal, subtle code highlighting inspired by modern code editors
-export const pureUIShikiTheme = {
-  name: "pure-ui-custom",
+export const duskUIShikiTheme = {
+  name: "dusk-ui-custom",
   bg: "var(--color-code)",
   fg: "var(--color-code-foreground)",
   settings: [

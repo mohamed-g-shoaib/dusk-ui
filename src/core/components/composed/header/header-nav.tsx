@@ -3,12 +3,12 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/classes";
-import { pureUIHeaderLinks } from "./data";
+import { duskUIHeaderLinks } from "./data";
 
 export function HeaderNav() {
   return (
     <div className="hidden lg:flex space-x-4 lg:space-x-8">
-      {pureUIHeaderLinks.map((link) => (
+      {duskUIHeaderLinks.map((link) => (
         <Link
           key={link.label}
           href={link.href}

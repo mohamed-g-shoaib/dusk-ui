@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-group-label-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "input-group"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/input-group/input-group-label-demo.tsx",
-      "content": "import {\r\n  InputGroup,\r\n  InputGroupAddon,\r\n  InputGroupButton,\r\n  InputGroupInput,\r\n  InputGroupText,\r\n  InputGroupTextarea,\r\n} from \"@/registry/pure-ui/ui/input-group\";\r\nimport {\r\n  Tooltip,\r\n  TooltipTrigger,\r\n  TooltipPopup,\r\n  TooltipProvider,\r\n} from \"@/registry/pure-ui/ui/tooltip\";\r\nimport { Label } from \"@/registry/pure-ui/ui/label\";\r\nimport { InfoIcon } from \"lucide-react\";\r\n\r\nexport function InputGroupLabelDemo() {\r\n  return (\r\n    <div className=\"grid w-full max-w-sm gap-4\">\r\n      <InputGroup>\r\n        <InputGroupInput id=\"email\" placeholder=\"Krishna\" />\r\n        <InputGroupAddon>\r\n          <Label htmlFor=\"email\">@</Label>\r\n        </InputGroupAddon>\r\n      </InputGroup>\r\n\r\n      <InputGroup>\r\n        <InputGroupInput id=\"email-2\" placeholder=\"krishna@kam-ui.com\" />\r\n        <InputGroupAddon align=\"block-start\">\r\n          <Label htmlFor=\"email-2\" className=\"text-foreground\">\r\n            Email\r\n          </Label>\r\n          <TooltipProvider>\r\n            <Tooltip>\r\n              <TooltipTrigger\r\n                render={\r\n                  <InputGroupButton\r\n                    variant=\"ghost\"\r\n                    aria-label=\"Help\"\r\n                    className=\"ml-auto rounded-full\"\r\n                    size=\"icon-xs\"\r\n                  />\r\n                }\r\n              >\r\n                <InfoIcon />\r\n              </TooltipTrigger>\r\n              <TooltipPopup>\r\n                <p>We&apos;ll use this to send you notifications</p>\r\n              </TooltipPopup>\r\n            </Tooltip>\r\n          </TooltipProvider>\r\n        </InputGroupAddon>\r\n      </InputGroup>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/input-group/input-group-label-demo.tsx",
+      "content": "import {\n  InputGroup,\n  InputGroupAddon,\n  InputGroupButton,\n  InputGroupInput,\n  InputGroupText,\n  InputGroupTextarea,\n} from \"@/registry/dusk-ui/ui/input-group\";\nimport {\n  Tooltip,\n  TooltipTrigger,\n  TooltipPopup,\n  TooltipProvider,\n} from \"@/registry/dusk-ui/ui/tooltip\";\nimport { Label } from \"@/registry/dusk-ui/ui/label\";\nimport { InfoIcon } from \"lucide-react\";\n\nexport function InputGroupLabelDemo() {\n  return (\n    <div className=\"grid w-full max-w-sm gap-4\">\n      <InputGroup>\n        <InputGroupInput id=\"email\" placeholder=\"Mohamed\" />\n        <InputGroupAddon>\n          <Label htmlFor=\"email\">@</Label>\n        </InputGroupAddon>\n      </InputGroup>\n\n      <InputGroup>\n        <InputGroupInput id=\"email-2\" placeholder=\"mohamed@kam-ui.com\" />\n        <InputGroupAddon align=\"block-start\">\n          <Label htmlFor=\"email-2\" className=\"text-foreground\">\n            Email\n          </Label>\n          <TooltipProvider>\n            <Tooltip>\n              <TooltipTrigger\n                render={\n                  <InputGroupButton\n                    variant=\"ghost\"\n                    aria-label=\"Help\"\n                    className=\"ml-auto rounded-full\"\n                    size=\"icon-xs\"\n                  />\n                }\n              >\n                <InfoIcon />\n              </TooltipTrigger>\n              <TooltipPopup>\n                <p>We&apos;ll use this to send you notifications</p>\n              </TooltipPopup>\n            </Tooltip>\n          </TooltipProvider>\n        </InputGroupAddon>\n      </InputGroup>\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

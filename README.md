@@ -1,46 +1,21 @@
-# Pure UI`
+# Dusk UI
 
-**Pure UI** is a collection of beautifully designed, accessible, and composable components for your React apps. Built on top of [Base UI](https://base-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/), it's designed for you to copy, paste, and own.
-
-<a href="https://pure.kam-ui.com">
-  <img alt="Pure UI" src="https://github.com/MusKRI/pure-ui/blob/main/public/images/og.png">
-</a>
+A modern React component library built on Base UI, Tailwind CSS v4, and Motion.
+Copy-paste components. No black boxes.
 
 ## Getting Started
 
-Run development server:
+Visit [dusk-ui.vercel.app](https://dusk-ui.vercel.app)
 
-```sh
-npm run dev
-```
+## Tech Stack
 
-Open http://localhost:3001 with your browser to see the result.
+- Next.js 16 + React 19
+- Base UI 1.0
+- Tailwind CSS v4
+- tailwind-variants
+- Motion v12
+- Biome
 
-## Development
+## License
 
-### Linting
-
-Check for linting errors:
-
-```sh
-npm run lint
-```
-
-Format code automatically:
-
-```sh
-npm run format
-```
-
-## Resources
-
-- [Next.JS](https://nextjs.org/)
-- [shadcn/ui](https://ui.shadcn.com/docs/registry)
-
-### shadcn/ui Registry
-
-Build shadcn/ui registry:
-
-```sh
-npm run build:pure-ui && npm run registry:build
-```
+MIT

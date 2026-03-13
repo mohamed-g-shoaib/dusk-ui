@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tabs-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "tabs"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/tabs/tabs-demo.tsx",
-      "content": "import {\r\n  Tabs,\r\n  TabsList,\r\n  TabsPanel,\r\n  TabsPanelsWrapper,\r\n  TabsTrigger,\r\n} from \"@/registry/pure-ui/ui/tabs\";\r\n\r\nexport function TabsDemo() {\r\n  return (\r\n    <Tabs defaultValue=\"docs\">\r\n      <TabsList>\r\n        <TabsTrigger value=\"docs\">Docs</TabsTrigger>\r\n        <TabsTrigger value=\"components\">Components</TabsTrigger>\r\n        <TabsTrigger value=\"blocks\">Blocks</TabsTrigger>\r\n      </TabsList>\r\n    </Tabs>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/tabs/tabs-demo.tsx",
+      "content": "import {\n  Tabs,\n  TabsList,\n  TabsPanel,\n  TabsPanelsWrapper,\n  TabsTrigger,\n} from \"@/registry/dusk-ui/ui/tabs\";\n\nexport function TabsDemo() {\n  return (\n    <Tabs defaultValue=\"docs\">\n      <TabsList>\n        <TabsTrigger value=\"docs\">Docs</TabsTrigger>\n        <TabsTrigger value=\"components\">Components</TabsTrigger>\n        <TabsTrigger value=\"blocks\">Blocks</TabsTrigger>\n      </TabsList>\n    </Tabs>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

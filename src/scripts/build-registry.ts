@@ -4,7 +4,7 @@ import path from "path";
 import { rimraf } from "rimraf";
 import { registrySchema } from "shadcn/schema";
 
-import { registry as pureUIRegistry } from "@/registry/pure-ui/registry";
+import { registry as duskUIRegistry } from "@/registry/dusk-ui/registry";
 
 async function buildRegistryIndex() {
   let index = `/* eslint-disable @typescript-eslint/ban-ts-comment */
@@ -17,11 +17,11 @@ import * as React from "react"
 export const Index: Record<string, Record<string, any>> = {`;
 
   // Validate the registry schema.
-  const parseResult = registrySchema.safeParse(pureUIRegistry);
+  const parseResult = registrySchema.safeParse(duskUIRegistry);
   if (!parseResult.success) {
-    console.error(`❌ Registry validation failed for Pure UI:`);
+    console.error(`❌ Registry validation failed for Dusk UI:`);
     console.error(parseResult.error.format());
-    throw new Error(`Invalid registry schema for Pure UI`);
+    throw new Error(`Invalid registry schema for Dusk UI`);
   }
 
   const registry = parseResult.data;
@@ -39,7 +39,7 @@ export const Index: Record<string, Record<string, any>> = {`;
     }
 
     const componentPath = item.files?.[0]?.path
-      ? `@/registry/pure-ui/${item.files[0].path}`
+      ? `@/registry/dusk-ui/${item.files[0].path}`
       : "";
 
     index += `
@@ -49,7 +49,7 @@ export const Index: Record<string, Record<string, any>> = {`;
       type: "${item.type}",
       registryDependencies: ${JSON.stringify(item.registryDependencies)},
       files: [${files.map((file) => {
-        const filePath = `registry/pure-ui/${file.path}`;
+        const filePath = `registry/dusk-ui/${file.path}`;
         return `{
         path: "${filePath}",
         type: "${file.type}",
@@ -74,15 +74,15 @@ export const Index: Record<string, Record<string, any>> = {`;
   }`;
 
   console.log(
-    `#️⃣  Built Pure UI index with ${
-      Object.keys(pureUIRegistry.items).length
+    `#️⃣  Built Dusk UI index with ${
+      Object.keys(duskUIRegistry.items).length
     } components`
   );
 
   // Write unified index.
   const outputPath = path.join(
     process.cwd(),
-    "src/registry/pure-ui/__index__.tsx"
+    "src/registry/dusk-ui/__index__.tsx"
   );
 
   await rimraf(outputPath);
@@ -91,11 +91,11 @@ export const Index: Record<string, Record<string, any>> = {`;
 
 async function buildRegistryJsonFile() {
   // 1. Validate the registry schema.
-  const parseResult = registrySchema.safeParse(pureUIRegistry);
+  const parseResult = registrySchema.safeParse(duskUIRegistry);
   if (!parseResult.success) {
-    console.error(`❌ Registry validation failed for Pure UI:`);
+    console.error(`❌ Registry validation failed for Dusk UI:`);
     console.error(parseResult.error.format());
-    throw new Error(`Invalid registry schema for Pure UI`);
+    throw new Error(`Invalid registry schema for Dusk UI`);
   }
 
   const registry = parseResult.data;
@@ -107,7 +107,7 @@ async function buildRegistryJsonFile() {
       const files = item.files?.map((file) => {
         return {
           ...file,
-          path: `src/registry/pure-ui/${file.path}`,
+          path: `src/registry/dusk-ui/${file.path}`,
         };
       });
 
@@ -138,13 +138,13 @@ async function buildRegistryJsonFile() {
   // 5. Write temporary registry file needed by shadcn build.
   // const tempRegistryPath = path.join(
   //   process.cwd(),
-  //   `src/registry/pure-ui.json`
+  //   `src/registry/dusk-ui.json`
   // );
   // await fs.writeFile(tempRegistryPath, JSON.stringify(fixedRegistry, null, 2));
 }
 
 try {
-  console.log("🗂️ Building src/registry/pure-ui/__index__.tsx...");
+  console.log("🗂️ Building src/registry/dusk-ui/__index__.tsx...");
   await buildRegistryIndex();
   console.log("💅 Building registry.json...");
   await buildRegistryJsonFile();

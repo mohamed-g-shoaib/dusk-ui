@@ -11,7 +11,7 @@ import {
 } from "@shikijs/transformers";
 import { transformerMetaDiff } from "@/lib/mdx/transformer-meta-diff";
 import { transformerCodeBlock } from "@/lib/mdx/transformer-code-block";
-import { pureUIShikiTheme } from "@/lib/mdx/shiki-theme";
+import { duskUIShikiTheme } from "@/lib/mdx/shiki-theme";
 
 interface MDXRemoteProps {
   content: string;
@@ -29,7 +29,7 @@ export const MDXRemote = ({ content }: MDXRemoteProps) => {
               [
                 rehypeShiki,
                 {
-                  theme: pureUIShikiTheme,
+                  theme: duskUIShikiTheme,
                   inline: "tailing-curly-colon",
                   transformers: [
                     transformerNotationHighlight(),

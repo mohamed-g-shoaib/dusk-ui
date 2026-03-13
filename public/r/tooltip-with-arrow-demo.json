@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-with-arrow-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "tooltip"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/tooltip/tooltip-with-arrow-demo.tsx",
-      "content": "import {\r\n  Tooltip,\r\n  TooltipTrigger,\r\n  TooltipPopup,\r\n} from \"@/registry/pure-ui/ui/tooltip\";\r\n\r\nexport const TooltipWithArrowDemo = () => {\r\n  return (\r\n    <Tooltip>\r\n      <TooltipTrigger>\r\n        <p>Hover me</p>\r\n      </TooltipTrigger>\r\n      <TooltipPopup showArrow>\r\n        <p>Tooltip Content</p>\r\n      </TooltipPopup>\r\n    </Tooltip>\r\n  );\r\n};\r\n",
+      "path": "src/registry/dusk-ui/examples/tooltip/tooltip-with-arrow-demo.tsx",
+      "content": "import {\n  Tooltip,\n  TooltipTrigger,\n  TooltipPopup,\n} from \"@/registry/dusk-ui/ui/tooltip\";\n\nexport const TooltipWithArrowDemo = () => {\n  return (\n    <Tooltip>\n      <TooltipTrigger>\n        <p>Hover me</p>\n      </TooltipTrigger>\n      <TooltipPopup showArrow>\n        <p>Tooltip Content</p>\n      </TooltipPopup>\n    </Tooltip>\n  );\n};\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

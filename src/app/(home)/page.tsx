@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/classes";
-import { Button } from "@/registry/pure-ui/ui/button";
+import { Button } from "@/registry/dusk-ui/ui/button";
 import { RollingText } from "components/composed/rolling-text";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
             <div className="flex h-full w-full snap-start flex-col items-center justify-center">
               <div className="flex flex-row items-center gap-4">
                 <RollingText
-                  text="Pure"
+                  text="Dusk"
                   speed={0.05}
                   duration={3}
                   className="text-5xl uppercase sm:text-7xl lg:text-8xl font-semibold"
@@ -34,8 +34,8 @@ export default function Home() {
           </div>
           <div className="px-[32px] relative leading-[1.8] text-center mt-8">
             <p className="mx-auto max-w-md text-lg text-foreground/80 font-light">
-              A design system for building modern web applications with pure
-              aesthetics and minimal complexity.
+              A modern React component library built on Base UI. Beautiful
+              animations. Zero compromise.
             </p>
           </div>
 

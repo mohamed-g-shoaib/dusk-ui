@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "combobox-with-label-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "combobox"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/combobox/combobox-with-label-demo.tsx",
-      "content": "\"use client\";\r\n\r\nimport {\r\n  Combobox,\r\n  ComboboxEmpty,\r\n  ComboboxInput,\r\n  ComboboxItem,\r\n  ComboboxList,\r\n  ComboboxPopup,\r\n  ComboboxLabel,\r\n} from \"@/registry/pure-ui/ui/combobox\";\r\n\r\nexport function ComboboxWithLabelDemo() {\r\n  return (\r\n    <Combobox items={fruits}>\r\n      <div className=\"max-w-xs w-full\">\r\n        <ComboboxLabel>Select a fruit</ComboboxLabel>\r\n        <ComboboxInput placeholder=\"Select a fruit...\" />\r\n      </div>\r\n      <ComboboxPopup>\r\n        <ComboboxEmpty>No fruits found.</ComboboxEmpty>\r\n        <ComboboxList>\r\n          {(fruit: string) => (\r\n            <ComboboxItem key={fruit} value={fruit}>\r\n              {fruit}\r\n            </ComboboxItem>\r\n          )}\r\n        </ComboboxList>\r\n      </ComboboxPopup>\r\n    </Combobox>\r\n  );\r\n}\r\n\r\nconst fruits = [\r\n  \"Apple\",\r\n  \"Banana\",\r\n  \"Orange\",\r\n  \"Pineapple\",\r\n  \"Grape\",\r\n  \"Mango\",\r\n  \"Strawberry\",\r\n  \"Blueberry\",\r\n  \"Raspberry\",\r\n  \"Blackberry\",\r\n  \"Cherry\",\r\n  \"Peach\",\r\n  \"Pear\",\r\n  \"Plum\",\r\n  \"Kiwi\",\r\n  \"Watermelon\",\r\n  \"Cantaloupe\",\r\n  \"Honeydew\",\r\n  \"Papaya\",\r\n  \"Guava\",\r\n  \"Lychee\",\r\n  \"Pomegranate\",\r\n  \"Apricot\",\r\n  \"Grapefruit\",\r\n  \"Passionfruit\",\r\n];\r\n",
+      "path": "src/registry/dusk-ui/examples/combobox/combobox-with-label-demo.tsx",
+      "content": "\"use client\";\n\nimport {\n  Combobox,\n  ComboboxEmpty,\n  ComboboxInput,\n  ComboboxItem,\n  ComboboxList,\n  ComboboxPopup,\n  ComboboxLabel,\n} from \"@/registry/dusk-ui/ui/combobox\";\n\nexport function ComboboxWithLabelDemo() {\n  return (\n    <Combobox items={fruits}>\n      <div className=\"max-w-xs w-full\">\n        <ComboboxLabel>Select a fruit</ComboboxLabel>\n        <ComboboxInput placeholder=\"Select a fruit...\" />\n      </div>\n      <ComboboxPopup>\n        <ComboboxEmpty>No fruits found.</ComboboxEmpty>\n        <ComboboxList>\n          {(fruit: string) => (\n            <ComboboxItem key={fruit} value={fruit}>\n              {fruit}\n            </ComboboxItem>\n          )}\n        </ComboboxList>\n      </ComboboxPopup>\n    </Combobox>\n  );\n}\n\nconst fruits = [\n  \"Apple\",\n  \"Banana\",\n  \"Orange\",\n  \"Pineapple\",\n  \"Grape\",\n  \"Mango\",\n  \"Strawberry\",\n  \"Blueberry\",\n  \"Raspberry\",\n  \"Blackberry\",\n  \"Cherry\",\n  \"Peach\",\n  \"Pear\",\n  \"Plum\",\n  \"Kiwi\",\n  \"Watermelon\",\n  \"Cantaloupe\",\n  \"Honeydew\",\n  \"Papaya\",\n  \"Guava\",\n  \"Lychee\",\n  \"Pomegranate\",\n  \"Apricot\",\n  \"Grapefruit\",\n  \"Passionfruit\",\n];\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

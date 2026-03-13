@@ -1,12 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/classes";
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { CopyButton } from "../copy-button";
 // import { CopyButton } from "../copy-button";
 
 interface SourcePreviewProps {
-  currentFile: ExtendedPureUIFile;
+  currentFile: ExtendedDuskUIFile;
 }
 
 export function SourcePreview({ currentFile }: SourcePreviewProps) {

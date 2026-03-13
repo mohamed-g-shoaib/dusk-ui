@@ -4,17 +4,17 @@ import { useMemo, useState } from "react";
 import { Tabs } from "@base-ui/react/tabs";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
 
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { ExtendedRegistryItem } from "@/lib/registry/process-registry";
 import { cn } from "@/lib/classes";
-import { Index } from "@/registry/pure-ui/__index__";
+import { Index } from "@/registry/dusk-ui/__index__";
 import { SourceCodeIcon, ViewIcon } from "@/core/icons/pack1";
 
 import { ComponentShowcaseTab } from "./component-showcase-tab";
 import { ComponentSources } from "./component-sources";
 
 interface ComponentShowcaseClientProps {
-  processedFiles: ExtendedPureUIFile[];
+  processedFiles: ExtendedDuskUIFile[];
   item: ExtendedRegistryItem;
   name: string;
 }
@@ -47,7 +47,7 @@ export function ComponentShowcaseClient({
   return (
     <div
       className={cn(
-        "PureUIComponentShowcase [.PureCodeBlockWrapper+&]:mt-7 [.PureUIComponentShowcase:has(+.PureP)]:mb-5! relative mb-12"
+        "DuskUIComponentShowcase [.DuskCodeBlockWrapper+&]:mt-7 [.DuskUIComponentShowcase:has(+.DuskP)]:mb-5! relative mb-12"
       )}
     >
       <LayoutGroup>

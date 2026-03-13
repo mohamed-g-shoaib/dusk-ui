@@ -8,7 +8,7 @@ import {
   RegistryItemFile,
   registryItemSchema,
 } from "@/lib/registry/schemas";
-import { Index } from "@/registry/pure-ui/__index__";
+import { Index } from "@/registry/dusk-ui/__index__";
 
 // ============================================================================
 // Types
@@ -51,8 +51,8 @@ export class ComponentNotFoundError extends Data.TaggedError(
  */
 function processImportPaths(content: string): string {
   return content
-    .replace(/@\/registry\/pure-ui\/ui\/([^"']+)/g, "@/components/ui/$1")
-    .replace(/@\/registry\/pure-ui\/lib\/([^"']+)/g, "@/lib/$1");
+    .replace(/@\/registry\/dusk-ui\/ui\/([^"']+)/g, "@/components/ui/$1")
+    .replace(/@\/registry\/dusk-ui\/lib\/([^"']+)/g, "@/lib/$1");
 }
 
 /**

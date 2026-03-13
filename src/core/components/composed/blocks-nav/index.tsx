@@ -8,7 +8,7 @@ import {
   ScrollArea,
   ScrollAreaContent,
   ScrollBar,
-} from "@/registry/pure-ui/ui/scroll-area";
+} from "@/registry/dusk-ui/ui/scroll-area";
 import { blocksNavItems } from "./data";
 import { cn } from "@/lib/classes";
 

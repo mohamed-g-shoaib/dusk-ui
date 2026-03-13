@@ -13,7 +13,7 @@ export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
 /**
  * Generates installation command for a registry item based on package manager
- * @param registryItemRestPath - Rest path of the registry item (e.g., "pure-ui/components/button-shadcn")
+ * @param registryItemRestPath - Rest path of the registry item (e.g., "dusk-ui/components/button-shadcn")
  * @param tool - Package manager tool to use
  * @returns Installation command string
  */
@@ -46,7 +46,7 @@ export function getNamespacedRegistryInstallationCommand(
 ) {
   if (!registryItemRestPath) throw new Error("Registry item name is required");
 
-  const registryUrl = `@pureui/${registryItemRestPath}`;
+  const registryUrl = `@duskui/${registryItemRestPath}`;
 
   switch (tool) {
     case "npm":

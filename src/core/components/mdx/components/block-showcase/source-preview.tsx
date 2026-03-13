@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/classes";
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 
 interface SourcePreviewProps {
-  currentFile: ExtendedPureUIFile;
+  currentFile: ExtendedDuskUIFile;
   showCode: boolean;
 }
 

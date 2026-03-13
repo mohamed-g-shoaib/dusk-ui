@@ -36,17 +36,17 @@ export async function generateMetadata(props: PageProps<"/docs/[[...path]]">) {
 
   return {
     metadataBase: new URL(getAppUrl()),
-    title: `${title} - Pure UI`,
+    title: `${title} - Dusk UI`,
     description: description,
     keywords: [
-      "pure ui",
+      "dusk ui",
       "design system",
       "base ui",
       "typescript",
       "tailwind css",
     ],
     openGraph: {
-      title: `${title} - Pure UI`,
+      title: `${title} - Dusk UI`,
       description: description,
       type: "article",
       url: `${getAppUrl()}/${parsedSlug.validPath}`,
@@ -55,14 +55,14 @@ export async function generateMetadata(props: PageProps<"/docs/[[...path]]">) {
           url: "/images/og.png",
           width: 1200,
           height: 630,
-          alt: `${title} - Pure UI Component`,
+          alt: `${title} - Dusk UI Component`,
         },
       ],
-      siteName: "Pure UI",
+      siteName: "Dusk UI",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} - Pure UI`,
+      title: `${title} - Dusk UI`,
       description: description,
       images: ["/images/og.png"],
     },
@@ -79,7 +79,7 @@ export async function generateStaticParams() {
   return staticPaths;
 }
 
-export default async function PureUIFlowPage(
+export default async function DuskUIFlowPage(
   props: PageProps<"/docs/[[...path]]">
 ) {
   const { path = [] } = await props.params;

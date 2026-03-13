@@ -1,16 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calendar-range-selection-minimum-days-block",
-  "type": "registry:block",
   "registryDependencies": [
     "calendar"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/blocks/calendar/calendar-5-block.tsx",
-      "content": "\"use client\";\r\n\r\nimport { useState } from \"react\";\r\nimport { DateRange } from \"react-day-picker\";\r\n\r\nimport { Calendar } from \"@/registry/pure-ui/ui/calendar\";\r\n\r\nexport function Calendar5Block() {\r\n  const [dateRange, setDateRange] = useState<DateRange | undefined>({\r\n    from: new Date(2025, 5, 12),\r\n    to: new Date(2025, 5, 26),\r\n  });\r\n\r\n  return (\r\n    <div className=\"flex flex-col gap-2 items-center justify-center p-5 min-h-[500px]\">\r\n      <Calendar\r\n        animate\r\n        mode=\"range\"\r\n        defaultMonth={dateRange?.from}\r\n        selected={dateRange}\r\n        onSelect={setDateRange}\r\n        numberOfMonths={1}\r\n        min={5}\r\n      />\r\n      <div className=\"text-muted-foreground text-center text-xs\">\r\n        A minimum of 5 days is required\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/blocks/calendar/calendar-5-block.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { DateRange } from \"react-day-picker\";\n\nimport { Calendar } from \"@/registry/dusk-ui/ui/calendar\";\n\nexport function Calendar5Block() {\n  const [dateRange, setDateRange] = useState<DateRange | undefined>({\n    from: new Date(2025, 5, 12),\n    to: new Date(2025, 5, 26),\n  });\n\n  return (\n    <div className=\"flex flex-col gap-2 items-center justify-center p-5 min-h-[500px]\">\n      <Calendar\n        animate\n        mode=\"range\"\n        defaultMonth={dateRange?.from}\n        selected={dateRange}\n        onSelect={setDateRange}\n        numberOfMonths={1}\n        min={5}\n      />\n      <div className=\"text-muted-foreground text-center text-xs\">\n        A minimum of 5 days is required\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:file",
       "target": "blocks/calendar/calendar-5-block.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

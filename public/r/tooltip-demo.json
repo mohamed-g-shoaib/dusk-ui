@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "tooltip-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "tooltip"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/tooltip/tooltip-demo.tsx",
-      "content": "import {\r\n  Tooltip,\r\n  TooltipTrigger,\r\n  TooltipPopup,\r\n  TooltipProvider,\r\n} from \"@/registry/pure-ui/ui/tooltip\";\r\n\r\nexport const TooltipDemo = () => {\r\n  return (\r\n    <TooltipProvider>\r\n      <Tooltip>\r\n        <TooltipTrigger>\r\n          <p>Hover me</p>\r\n        </TooltipTrigger>\r\n        <TooltipPopup animationPreset=\"fade\" transitionPreset=\"quickOut\">\r\n          <p>Tooltip Content</p>\r\n        </TooltipPopup>\r\n      </Tooltip>\r\n    </TooltipProvider>\r\n  );\r\n};\r\n",
+      "path": "src/registry/dusk-ui/examples/tooltip/tooltip-demo.tsx",
+      "content": "import {\n  Tooltip,\n  TooltipTrigger,\n  TooltipPopup,\n  TooltipProvider,\n} from \"@/registry/dusk-ui/ui/tooltip\";\n\nexport const TooltipDemo = () => {\n  return (\n    <TooltipProvider>\n      <Tooltip>\n        <TooltipTrigger>\n          <p>Hover me</p>\n        </TooltipTrigger>\n        <TooltipPopup animationPreset=\"fade\" transitionPreset=\"quickOut\">\n          <p>Tooltip Content</p>\n        </TooltipPopup>\n      </Tooltip>\n    </TooltipProvider>\n  );\n};\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

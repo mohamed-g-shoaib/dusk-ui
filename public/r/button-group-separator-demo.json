@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "button-group-separator-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "button-group"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/button-group/button-group-separator-demo.tsx",
-      "content": "import { Button } from \"@/registry/pure-ui/ui/button\";\r\nimport {\r\n  ButtonGroup,\r\n  ButtonGroupSeparator,\r\n} from \"@/registry/pure-ui/ui/button-group\";\r\n\r\nexport function ButtonGroupSeparatorDemo() {\r\n  return (\r\n    <ButtonGroup>\r\n      <Button variant=\"secondary\" size=\"sm\">\r\n        Copy\r\n      </Button>\r\n      <ButtonGroupSeparator orientation=\"vertical\" />\r\n      <Button variant=\"secondary\" size=\"sm\">\r\n        Paste\r\n      </Button>\r\n    </ButtonGroup>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/button-group/button-group-separator-demo.tsx",
+      "content": "import { Button } from \"@/registry/dusk-ui/ui/button\";\nimport {\n  ButtonGroup,\n  ButtonGroupSeparator,\n} from \"@/registry/dusk-ui/ui/button-group\";\n\nexport function ButtonGroupSeparatorDemo() {\n  return (\n    <ButtonGroup>\n      <Button variant=\"secondary\" size=\"sm\">\n        Copy\n      </Button>\n      <ButtonGroupSeparator orientation=\"vertical\" />\n      <Button variant=\"secondary\" size=\"sm\">\n        Paste\n      </Button>\n    </ButtonGroup>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

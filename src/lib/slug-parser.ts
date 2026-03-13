@@ -1,11 +1,11 @@
 import { Effect } from "effect";
 
-export const pureUITypes = {
+export const duskUITypes = {
   docs: "Docs",
   components: "Components",
 } as const;
 
-export type PureUIType = (typeof pureUITypes)[keyof typeof pureUITypes];
+export type DuskUIType = (typeof duskUITypes)[keyof typeof duskUITypes];
 
 export interface ParsedSlug {
   type: "docs" | "components";

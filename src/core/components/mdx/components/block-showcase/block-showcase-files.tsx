@@ -1,6 +1,6 @@
 import { Dialog as SheetPrimitive } from "@base-ui/react/dialog";
 
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/classes";
 import { ChevronDown, ChevronRight, Circle } from "lucide-react";
@@ -8,7 +8,7 @@ import { ChevronDown, ChevronRight, Circle } from "lucide-react";
 interface Props {
   handleFileChange: (index: number) => void;
   activeFileIndex: number;
-  processedFiles: ExtendedPureUIFile[];
+  processedFiles: ExtendedDuskUIFile[];
   containerRef: React.RefObject<HTMLDivElement | null>;
   showCode: boolean;
 }

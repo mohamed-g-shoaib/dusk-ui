@@ -1,16 +1,16 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calendar-block",
-  "type": "registry:block",
   "registryDependencies": [
     "calendar"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/blocks/calendar/calendar-block.tsx",
-      "content": "\"use client\";\r\n\r\nimport { useState } from \"react\";\r\nimport { Calendar } from \"@/registry/pure-ui/ui/calendar\";\r\n\r\nexport function CalendarBlock() {\r\n  const [date, setDate] = useState<Date | undefined>(new Date(2025, 5, 12));\r\n\r\n  return (\r\n    <div className=\"flex items-center justify-center p-5 min-h-[500px]\">\r\n      <Calendar\r\n        animate\r\n        mode=\"single\"\r\n        defaultMonth={date}\r\n        selected={date}\r\n        onSelect={setDate}\r\n        className=\"border shadow-sm\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/blocks/calendar/calendar-block.tsx",
+      "content": "\"use client\";\n\nimport { useState } from \"react\";\nimport { Calendar } from \"@/registry/dusk-ui/ui/calendar\";\n\nexport function CalendarBlock() {\n  const [date, setDate] = useState<Date | undefined>(new Date(2025, 5, 12));\n\n  return (\n    <div className=\"flex items-center justify-center p-5 min-h-[500px]\">\n      <Calendar\n        animate\n        mode=\"single\"\n        defaultMonth={date}\n        selected={date}\n        onSelect={setDate}\n        className=\"border shadow-sm\"\n      />\n    </div>\n  );\n}\n",
       "type": "registry:file",
       "target": "blocks/calendar/calendar-block.tsx"
     }
-  ]
+  ],
+  "type": "registry:block"
 }

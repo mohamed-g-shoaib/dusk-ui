@@ -38,7 +38,7 @@ export function InstallationCommandsClient({
   }, []);
 
   return (
-    <div className="PureInstallationCommands mt-3 rounded-2xl bg-code border border-border relative bg-clip-padding before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-2xl)-1px)] before:shadow-[0_1px_2px_1px_--theme(--color-black/4%)] after:pointer-events-none after:absolute after:-inset-[5px] after:-z-1 after:rounded-[calc(var(--radius-2xl)+4px)] after:border after:border-border/50 after:bg-clip-padding ">
+    <div className="DuskInstallationCommands mt-3 rounded-2xl bg-code border border-border relative bg-clip-padding before:pointer-events-none before:absolute before:inset-0 before:rounded-[calc(var(--radius-2xl)-1px)] before:shadow-[0_1px_2px_1px_--theme(--color-black/4%)] after:pointer-events-none after:absolute after:-inset-[5px] after:-z-1 after:rounded-[calc(var(--radius-2xl)+4px)] after:border after:border-border/50 after:bg-clip-padding ">
       <LayoutGroup>
         <Tabs.Root value={activeTab} onValueChange={handleTabChange}>
           <div className="h-full flex flex-col rounded-2xl overflow-hidden">

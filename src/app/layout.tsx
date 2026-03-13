@@ -4,13 +4,13 @@ import "@/styles/globals.css";
 import { cn } from "@/lib/classes";
 import { fontVariables } from "@/lib/fonts";
 import { ThemeProvider } from "@/core/providers";
-import { ToastProvider } from "@/registry/pure-ui/ui/toast";
+import { ToastProvider } from "@/registry/dusk-ui/ui/toast";
 
-import { Analytics } from "@/core/events/openpanel";
+import { Analytics } from "@/core/events/umami";
 
 export const metadata: Metadata = {
-  title: "Pure UI",
-  description: "Built by Krishna",
+  title: "Dusk UI",
+  description: "A modern React UI component library built on Base UI.",
 };
 
 export default function RootLayout({

@@ -4,7 +4,7 @@ type HeaderLink = {
   tag?: string;
 };
 
-export const pureUIHeaderLinks = [
+export const duskUIHeaderLinks = [
   {
     label: "Docs",
     href: "/docs",

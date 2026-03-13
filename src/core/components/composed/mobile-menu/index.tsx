@@ -6,7 +6,7 @@ import Link from "next/link";
 
 import { useSidebar } from "../sidebar/use-sidebar";
 import { cn } from "@/lib/classes";
-import { PureUILogo } from "../logo";
+import { DuskUILogo } from "../logo";
 import { MobileMenuNav } from "./mobile-menu-nav";
 
 export function MobileMenu() {
@@ -33,14 +33,14 @@ export function MobileMenu() {
         >
           <div className="h-16 bg-muted flex items-center px-6 border-b border-border shrink-0">
             <Link href="/" className="flex items-center gap-1">
-              <PureUILogo className="w-6 h-6 text-primary" />
+              <DuskUILogo className="w-6 h-6 text-primary" />
               <div
                 className={cn(
                   "[--text-color:linear-gradient(180deg,#555_0%,#000_100%)] dark:[--text-color:linear-gradient(180deg,#fff_0%,#adadad_100%)]",
                   "bg-clip-text text-transparent bg-(image:--text-color) font-semibold relative text-xl font-chillax"
                 )}
               >
-                Pure UI
+                Dusk UI
               </div>
             </Link>
           </div>

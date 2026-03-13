@@ -9,13 +9,13 @@ import {
 import { useCallback, useMemo, useState } from "react";
 import { Tabs } from "@base-ui/react/tabs";
 
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { ExtendedRegistryItem } from "@/lib/registry/process-registry";
 import { ComponentCodePreviewHeader } from "./component-code-peview-header";
 import { SourcePreview } from "../component-showcase/source-preview";
 
 interface ComponentCodePreviewClientProps {
-  processedFiles: ExtendedPureUIFile[];
+  processedFiles: ExtendedDuskUIFile[];
   item: ExtendedRegistryItem;
   name: string;
 }

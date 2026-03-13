@@ -42,10 +42,10 @@ export async function generateMetadata(props: PageProps<"/blocks/[...path]">) {
 
   return {
     metadataBase: new URL(getAppUrl()),
-    title: `${title} Blocks - Pure UI`,
+    title: `${title} Blocks - Dusk UI`,
     description: description,
     keywords: [
-      "pure ui",
+      "dusk ui",
       "design system",
       "base ui",
       "typescript",
@@ -53,7 +53,7 @@ export async function generateMetadata(props: PageProps<"/blocks/[...path]">) {
       "blocks",
     ],
     openGraph: {
-      title: `${title} - Pure UI`,
+      title: `${title} - Dusk UI`,
       description: description,
       type: "article",
       url: `${getAppUrl()}/${urlPath}`,
@@ -62,14 +62,14 @@ export async function generateMetadata(props: PageProps<"/blocks/[...path]">) {
           url: "/images/og.png",
           width: 1200,
           height: 630,
-          alt: `${title} - Pure UI Block`,
+          alt: `${title} - Dusk UI Block`,
         },
       ],
-      siteName: "Pure UI",
+      siteName: "Dusk UI",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} - Pure UI`,
+      title: `${title} - Dusk UI`,
       description: description,
       images: ["/images/og.png"],
     },

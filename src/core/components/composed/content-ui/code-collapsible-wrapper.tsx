@@ -3,13 +3,13 @@
 import * as React from "react";
 
 import { cn } from "@/lib/classes";
-import { Button } from "@/registry/pure-ui/ui/button";
+import { Button } from "@/registry/dusk-ui/ui/button";
 import {
   Collapsible,
   CollapsiblePanel,
   CollapsibleTrigger,
-} from "@/registry/pure-ui/ui/collapsible";
-import { Separator } from "@/registry/pure-ui/ui/separator";
+} from "@/registry/dusk-ui/ui/collapsible";
+import { Separator } from "@/registry/dusk-ui/ui/separator";
 
 export function CodeCollapsibleWrapper({
   className,

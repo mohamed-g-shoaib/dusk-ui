@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "dialog-reduce-motion-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "dialog"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/dialog/dialog-reduce-motion-demo.tsx",
-      "content": "import {\r\n  Dialog,\r\n  DialogPopup,\r\n  DialogDescription,\r\n  DialogFooter,\r\n  DialogHeader,\r\n  DialogTitle,\r\n  DialogTrigger,\r\n} from \"@/registry/pure-ui/ui/dialog\";\r\n\r\nimport { Button } from \"@/registry/pure-ui/ui/button\";\r\n\r\nexport const DialogReduceMotionDemo = () => {\r\n  return (\r\n    <Dialog>\r\n      <DialogTrigger render={<Button />}>Open</DialogTrigger>\r\n\r\n      <DialogPopup reduceMotion>\r\n        <DialogHeader>\r\n          <DialogTitle>Terms of Service</DialogTitle>\r\n          <DialogDescription>\r\n            Please read the following terms of service carefully.\r\n          </DialogDescription>\r\n        </DialogHeader>\r\n\r\n        <div className=\"grid gap-4 py-4\">\r\n          <p>\r\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,\r\n            quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.\r\n            Quisquam, quos.\r\n          </p>\r\n        </div>\r\n\r\n        <DialogFooter>\r\n          <Button variant=\"outline\" radius=\"full\" className=\"w-full sm:w-auto\">\r\n            Decline\r\n          </Button>\r\n          <Button type=\"submit\" radius=\"full\" className=\"w-full sm:w-auto\">\r\n            Accept\r\n          </Button>\r\n        </DialogFooter>\r\n      </DialogPopup>\r\n    </Dialog>\r\n  );\r\n};\r\n",
+      "path": "src/registry/dusk-ui/examples/dialog/dialog-reduce-motion-demo.tsx",
+      "content": "import {\n  Dialog,\n  DialogPopup,\n  DialogDescription,\n  DialogFooter,\n  DialogHeader,\n  DialogTitle,\n  DialogTrigger,\n} from \"@/registry/dusk-ui/ui/dialog\";\n\nimport { Button } from \"@/registry/dusk-ui/ui/button\";\n\nexport const DialogReduceMotionDemo = () => {\n  return (\n    <Dialog>\n      <DialogTrigger render={<Button />}>Open</DialogTrigger>\n\n      <DialogPopup reduceMotion>\n        <DialogHeader>\n          <DialogTitle>Terms of Service</DialogTitle>\n          <DialogDescription>\n            Please read the following terms of service carefully.\n          </DialogDescription>\n        </DialogHeader>\n\n        <div className=\"grid gap-4 py-4\">\n          <p>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,\n            quos. Lorem ipsum dolor sit amet consectetur adipisicing elit.\n            Quisquam, quos.\n          </p>\n        </div>\n\n        <DialogFooter>\n          <Button variant=\"outline\" radius=\"full\" className=\"w-full sm:w-auto\">\n            Decline\n          </Button>\n          <Button type=\"submit\" radius=\"full\" className=\"w-full sm:w-auto\">\n            Accept\n          </Button>\n        </DialogFooter>\n      </DialogPopup>\n    </Dialog>\n  );\n};\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

@@ -9,7 +9,7 @@ import {
   transformerMetaWordHighlight,
 } from "@shikijs/transformers";
 
-import { pureUIShikiTheme } from "./shiki-theme";
+import { duskUIShikiTheme } from "./shiki-theme";
 import { transformerMetaDiff } from "./transformer-meta-diff";
 import { transformerCodeBlock } from "./transformer-code-block";
 
@@ -82,7 +82,7 @@ export async function highlightCode(
     // Use transformers for line highlighting if meta is provided
     html = await codeToHtml(code, {
       lang: mappedLanguage,
-      theme: pureUIShikiTheme as any,
+      theme: duskUIShikiTheme as any,
       meta: meta ? { __raw: meta } : undefined,
       transformers: [
         transformerNotationHighlight(),

@@ -1,7 +1,7 @@
 import { SidebarItem } from "@/types/sidebar.types";
 import { blocksNavItems } from "../blocks-nav/data";
 
-const pureUIDocs = [
+const duskUIDocs = [
   {
     id: "introduction",
     title: "Introduction",
@@ -79,7 +79,7 @@ const pureUIDocs = [
   },
 ] satisfies SidebarItem[];
 
-const pureUIComponents = [
+const duskUIComponents = [
   {
     id: "accordion",
     title: "Accordion",
@@ -280,19 +280,19 @@ const pureUIComponents = [
   },
 ] satisfies SidebarItem[];
 
-export const pureUISidebarConfig = {
-  docs: pureUIDocs,
-  components: pureUIComponents,
+export const duskUISidebarConfig = {
+  docs: duskUIDocs,
+  components: duskUIComponents,
   blocks: blocksNavItems,
 };
 
 export const sidebarTree = [
   {
     label: "Docs",
-    items: pureUIDocs,
+    items: duskUIDocs,
   },
   {
     label: "Components",
-    items: pureUIComponents,
+    items: duskUIComponents,
   },
 ];

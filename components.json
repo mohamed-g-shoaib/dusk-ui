@@ -19,6 +19,6 @@
     "hooks": "@/hooks"
   },
   "registries": {
-    "@pureui": "https://pure.kam-ui.com/r/{name}.json"
+    "@duskui": "https://dusk-ui.vercel.app/r/{name}.json"
   }
 }

@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "label-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "label"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/label/label-demo.tsx",
-      "content": "import { Input } from \"@/registry/pure-ui/ui/input\";\r\nimport { Label } from \"@/registry/pure-ui/ui/label\";\r\n\r\nexport function LabelDemo() {\r\n  return (\r\n    <div className=\"flex flex-col items-start gap-2\">\r\n      <Label htmlFor=\"email\">Email</Label>\r\n      <Input\r\n        id=\"email\"\r\n        type=\"email\"\r\n        placeholder=\"you@example.com\"\r\n        aria-label=\"Email\"\r\n      />\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/label/label-demo.tsx",
+      "content": "import { Input } from \"@/registry/dusk-ui/ui/input\";\nimport { Label } from \"@/registry/dusk-ui/ui/label\";\n\nexport function LabelDemo() {\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Label htmlFor=\"email\">Email</Label>\n      <Input\n        id=\"email\"\n        type=\"email\"\n        placeholder=\"you@example.com\"\n        aria-label=\"Email\"\n      />\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

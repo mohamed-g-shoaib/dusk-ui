@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "number-field-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "number-field"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/number-field/number-field-demo.tsx",
-      "content": "import {\r\n  NumberField,\r\n  NumberFieldDecrement,\r\n  NumberFieldGroup,\r\n  NumberFieldIncrement,\r\n  NumberFieldInput,\r\n} from \"@/registry/pure-ui/ui/number-field\";\r\n\r\nexport function NumberFieldDemo() {\r\n  return (\r\n    <NumberField defaultValue={0}>\r\n      <NumberFieldGroup>\r\n        <NumberFieldDecrement />\r\n        <NumberFieldInput />\r\n        <NumberFieldIncrement />\r\n      </NumberFieldGroup>\r\n    </NumberField>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/number-field/number-field-demo.tsx",
+      "content": "import {\n  NumberField,\n  NumberFieldDecrement,\n  NumberFieldGroup,\n  NumberFieldIncrement,\n  NumberFieldInput,\n} from \"@/registry/dusk-ui/ui/number-field\";\n\nexport function NumberFieldDemo() {\n  return (\n    <NumberField defaultValue={0}>\n      <NumberFieldGroup>\n        <NumberFieldDecrement />\n        <NumberFieldInput />\n        <NumberFieldIncrement />\n      </NumberFieldGroup>\n    </NumberField>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

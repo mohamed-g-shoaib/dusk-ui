@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "checkbox-sizes-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "checkbox"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/checkbox/checkbox-sizes-demo.tsx",
-      "content": "import { Checkbox } from \"@/registry/pure-ui/ui/checkbox\";\r\n\r\nexport function CheckboxSizesDemo() {\r\n  return (\r\n    <div className=\"flex flex-col gap-5\">\r\n      <label className=\"flex items-center gap-2 cursor-pointer\">\r\n        <Checkbox size=\"sm\" />\r\n        <span>Make a choice</span>\r\n      </label>\r\n      <label className=\"flex items-center gap-2 cursor-pointer\">\r\n        <Checkbox size=\"default\" />\r\n        <span>Make a choice</span>\r\n      </label>\r\n\r\n      <label className=\"flex items-center gap-2 cursor-pointer\">\r\n        <Checkbox size=\"lg\" />\r\n        <span>Make a choice</span>\r\n      </label>\r\n    </div>\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/checkbox/checkbox-sizes-demo.tsx",
+      "content": "import { Checkbox } from \"@/registry/dusk-ui/ui/checkbox\";\n\nexport function CheckboxSizesDemo() {\n  return (\n    <div className=\"flex flex-col gap-5\">\n      <label className=\"flex items-center gap-2 cursor-pointer\">\n        <Checkbox size=\"sm\" />\n        <span>Make a choice</span>\n      </label>\n      <label className=\"flex items-center gap-2 cursor-pointer\">\n        <Checkbox size=\"default\" />\n        <span>Make a choice</span>\n      </label>\n\n      <label className=\"flex items-center gap-2 cursor-pointer\">\n        <Checkbox size=\"lg\" />\n        <span>Make a choice</span>\n      </label>\n    </div>\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

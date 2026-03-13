@@ -1,6 +1,6 @@
 import { Sidebar } from "@/core/components/composed/sidebar";
 
-export default function PureUILayout({
+export default function DuskUILayout({
   children,
 }: {
   children: React.ReactNode;

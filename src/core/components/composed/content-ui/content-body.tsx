@@ -3,8 +3,8 @@ import { ParsedContent } from "@/lib/content-parser";
 import { MDXRemote } from "components/mdx";
 import { DelayedRender } from "components/delayed-render";
 import {
-  PureUITableOfContent,
-  PureUITableOfContentMobile,
+  DuskUITableOfContent,
+  DuskUITableOfContentMobile,
 } from "./table-of-content";
 
 interface Props {
@@ -23,7 +23,7 @@ export const ContentBody = ({ parsedContent }: Props) => {
     <>
       {headingsLength && (
         <DelayedRender delayMs={1000}>
-          <PureUITableOfContentMobile headings={parsedContent.headings} />
+          <DuskUITableOfContentMobile headings={parsedContent.headings} />
         </DelayedRender>
       )}
       <div
@@ -44,7 +44,7 @@ export const ContentBody = ({ parsedContent }: Props) => {
         {headingsLength && (
           <DelayedRender delayMs={1000}>
             <div className="max-w-[260px] sticky top-0 shrink-0 mr-auto ml-7 hidden lg:flex lg:flex-col lg:self-start">
-              <PureUITableOfContent headings={parsedContent.headings} />
+              <DuskUITableOfContent headings={parsedContent.headings} />
               <div className="pb-36 px-6"></div>
             </div>
           </DelayedRender>

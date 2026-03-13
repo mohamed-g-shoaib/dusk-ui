@@ -7,7 +7,7 @@ type Props = {
   headings: Heading[];
 };
 
-export const PureUITableOfContent = ({ headings }: Props) => {
+export const DuskUITableOfContent = ({ headings }: Props) => {
   return (
     <div className="pt-26 pb-16 h-full">
       <div className="font-medium flex items-center mb-4 text-sm font-mono">

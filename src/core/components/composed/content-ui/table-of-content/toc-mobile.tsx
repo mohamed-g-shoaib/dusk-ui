@@ -14,7 +14,7 @@ type Props = {
   headings: Heading[];
 };
 
-export function PureUITableOfContentMobile({ headings }: Props) {
+export function DuskUITableOfContentMobile({ headings }: Props) {
   return (
     <TOCProvider toc={headings}>
       <MobileTOCContent />

@@ -1,46 +1,59 @@
-import { generateRegistryRssFeed } from "@wandry/analytics-sdk";
 import type { NextRequest } from "next/server";
+
+import { registry } from "@/registry/dusk-ui/registry";
 
 export const revalidate = 3600;
 
+const excludedTypes = new Set([
+  "registry:example",
+  "registry:style",
+  "registry:lib",
+]);
+
+function escapeXml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
+}
+
 export async function GET(request: NextRequest) {
   const baseUrl = new URL(request.url).origin;
+  const now = new Date().toUTCString();
 
-  const rssXml = await generateRegistryRssFeed({
-    baseUrl,
-    componentsUrl: "/components",
-    rss: {
-      title: "@pure-ui",
-      description: "Subscribe to @pure-ui updates",
-      link: "https://pure.kam-ui.com/",
-      pubDateStrategy: "githubLastEdit",
-    },
-    /**
-     * They don’t generate RSS items for these types of registry items because there’s no link for them on the site.
-     * Once you add them to be displayed on the site, you can simply remove them from the array
-     * */
-    excludeItemTypes: ["registry:example", "registry:style", "registry:lib"],
-    github: {
-      owner: "MusKRI",
-      repo: "pure-ui",
-      /**
-       *
-       * You need to enter your GitHub token here.
-       * I don't store it anywhere.
-       * It is needed to send a request to the GitHub API and get the date of the last commit for the registry item.
-       * This is necessary to generate a valid date of change for the item.
-       *
-       */
-      token: process.env.GITHUB_TOKEN,
-    },
-  });
+  const items = registry.items
+    .filter((item) => !excludedTypes.has(item.type))
+    .map((item) => {
+      const title = item.title ?? item.name;
+      const description = item.description ?? `Dusk UI ${item.name} update`;
+      const link = `${baseUrl}/docs/components/${item.name}`;
 
-  if (!rssXml) {
-    return new Response("RSS feed not available", {
-      status: 404,
-      headers: { "Content-Type": "text/plain" },
-    });
-  }
+      return [
+        "<item>",
+        `<title>${escapeXml(title)}</title>`,
+        `<description>${escapeXml(description)}</description>`,
+        `<link>${escapeXml(link)}</link>`,
+        `<guid>${escapeXml(link)}</guid>`,
+        `<pubDate>${now}</pubDate>`,
+        "</item>",
+      ].join("");
+    })
+    .join("");
+
+  const rssXml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0">',
+    "<channel>",
+    "<title>@dusk-ui</title>",
+    "<description>Subscribe to @dusk-ui updates</description>",
+    `<link>${escapeXml(baseUrl)}</link>`,
+    `<lastBuildDate>${now}</lastBuildDate>`,
+    items,
+    "</channel>",
+    "</rss>",
+  ].join("");
 
   return new Response(rssXml, {
     headers: {

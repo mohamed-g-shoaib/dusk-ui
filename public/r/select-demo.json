@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "select-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "select"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/select/select-demo.tsx",
-      "content": "import { CheckIcon, ChevronsUpDownIcon } from \"lucide-react\";\r\n\r\nimport {\r\n  Select,\r\n  SelectTrigger,\r\n  SelectValue,\r\n  SelectIcon,\r\n  SelectPopup,\r\n  SelectList,\r\n  SelectItem,\r\n  SelectItemText,\r\n  SelectItemIndicator,\r\n} from \"@/registry/pure-ui/ui/select\";\r\n\r\nconst fonts = [\r\n  { label: \"JavaScript\", value: \"javascript\" },\r\n  { label: \"TypeScript\", value: \"typescript\" },\r\n  { label: \"Python\", value: \"python\" },\r\n  { label: \"Java\", value: \"java\" },\r\n  { label: \"C#\", value: \"csharp\" },\r\n  { label: \"PHP\", value: \"php\" },\r\n  { label: \"C++\", value: \"cpp\" },\r\n  { label: \"Rust\", value: \"rust\" },\r\n  { label: \"Go\", value: \"go\" },\r\n  { label: \"Swift\", value: \"swift\" },\r\n];\r\n\r\nexport const SelectDemo = () => {\r\n  return (\r\n    <Select items={fonts}>\r\n      <SelectTrigger className=\"min-w-46\">\r\n        <SelectValue />\r\n        <SelectIcon>\r\n          <ChevronsUpDownIcon className=\"size-3.5\" />\r\n        </SelectIcon>\r\n      </SelectTrigger>\r\n      <SelectPopup>\r\n        <SelectList>\r\n          {fonts.map(({ label, value }) => {\r\n            return (\r\n              <SelectItem key={value} value={value}>\r\n                <SelectItemText>{label}</SelectItemText>\r\n                <SelectItemIndicator>\r\n                  <CheckIcon className=\"size-3\" />\r\n                </SelectItemIndicator>\r\n              </SelectItem>\r\n            );\r\n          })}\r\n        </SelectList>\r\n      </SelectPopup>\r\n    </Select>\r\n  );\r\n};\r\n",
+      "path": "src/registry/dusk-ui/examples/select/select-demo.tsx",
+      "content": "import { CheckIcon, ChevronsUpDownIcon } from \"lucide-react\";\n\nimport {\n  Select,\n  SelectTrigger,\n  SelectValue,\n  SelectIcon,\n  SelectPopup,\n  SelectList,\n  SelectItem,\n  SelectItemText,\n  SelectItemIndicator,\n} from \"@/registry/dusk-ui/ui/select\";\n\nconst fonts = [\n  { label: \"JavaScript\", value: \"javascript\" },\n  { label: \"TypeScript\", value: \"typescript\" },\n  { label: \"Python\", value: \"python\" },\n  { label: \"Java\", value: \"java\" },\n  { label: \"C#\", value: \"csharp\" },\n  { label: \"PHP\", value: \"php\" },\n  { label: \"C++\", value: \"cpp\" },\n  { label: \"Rust\", value: \"rust\" },\n  { label: \"Go\", value: \"go\" },\n  { label: \"Swift\", value: \"swift\" },\n];\n\nexport const SelectDemo = () => {\n  return (\n    <Select items={fonts}>\n      <SelectTrigger className=\"min-w-46\">\n        <SelectValue />\n        <SelectIcon>\n          <ChevronsUpDownIcon className=\"size-3.5\" />\n        </SelectIcon>\n      </SelectTrigger>\n      <SelectPopup>\n        <SelectList>\n          {fonts.map(({ label, value }) => {\n            return (\n              <SelectItem key={value} value={value}>\n                <SelectItemText>{label}</SelectItemText>\n                <SelectItemIndicator>\n                  <CheckIcon className=\"size-3\" />\n                </SelectItemIndicator>\n              </SelectItem>\n            );\n          })}\n        </SelectList>\n      </SelectPopup>\n    </Select>\n  );\n};\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

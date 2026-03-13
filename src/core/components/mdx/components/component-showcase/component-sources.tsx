@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { Code2 } from "lucide-react";
 
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { ExtendedRegistryItem } from "@/lib/registry/process-registry";
 import { ComponentSourceFiles } from "./comopnent-source-files";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
@@ -9,7 +9,7 @@ import { SourcePreview } from "./source-preview";
 
 interface ComponentSourcesProps {
   name: string;
-  processedFiles: ExtendedPureUIFile[];
+  processedFiles: ExtendedDuskUIFile[];
   item: ExtendedRegistryItem;
 }
 

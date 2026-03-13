@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import { GithubIcon } from "@/core/icons/pack1";
-import { Button } from "@/registry/pure-ui/ui/button";
+import { Button } from "@/registry/dusk-ui/ui/button";
 
 export async function StarsCount() {
   try {
-    const data = await fetch("https://api.github.com/repos/MusKRI/pure-ui", {
+    const data = await fetch("https://api.github.com/repos/mohamed-g-shoaib/dusk-ui", {
       next: {
         revalidate: 3600,
       },
@@ -43,7 +43,7 @@ export function GithubButton() {
       nativeButton={false}
       render={
         <Link
-          href="https://github.com/MusKRI/pure-ui"
+          href="https://github.com/mohamed-g-shoaib/dusk-ui"
           target="_blank"
           rel="noreferrer"
         />

@@ -9,7 +9,7 @@ import { type RegistryItemFile } from "@/lib/registry/schemas";
 // Types
 // ============================================================================
 
-export type ExtendedPureUIFile = RegistryItemFile & {
+export type ExtendedDuskUIFile = RegistryItemFile & {
   highlightedCode: string;
   detectedLanguage: string;
 };
@@ -38,7 +38,7 @@ export class ContentMissingError extends Data.TaggedError(
  */
 const processFile = (
   file: RegistryItemFile
-): Effect.Effect<ExtendedPureUIFile, ProcessingError | ContentMissingError> =>
+): Effect.Effect<ExtendedDuskUIFile, ProcessingError | ContentMissingError> =>
   Effect.gen(function* () {
     if (!file.content) {
       yield* Effect.fail(new ContentMissingError({ filePath: file.path }));
@@ -63,7 +63,7 @@ const processFile = (
       ...file,
       highlightedCode,
       detectedLanguage,
-    } satisfies ExtendedPureUIFile;
+    } satisfies ExtendedDuskUIFile;
   });
 
 /**
@@ -71,7 +71,7 @@ const processFile = (
  */
 export const processFiles = (
   files: RegistryItemFile[]
-): Effect.Effect<ExtendedPureUIFile[], ProcessingError | ContentMissingError> =>
+): Effect.Effect<ExtendedDuskUIFile[], ProcessingError | ContentMissingError> =>
   Effect.gen(function* () {
     const processedFiles = yield* Effect.all(files.map(processFile), {
       concurrency: 5, // Limited concurrency to prevent resource exhaustion
@@ -86,7 +86,7 @@ export const processFiles = (
 export const processFilesWithErrorCollection = (
   files: RegistryItemFile[]
 ): Effect.Effect<{
-  successful: ExtendedPureUIFile[];
+  successful: ExtendedDuskUIFile[];
   errors: Array<{
     file: RegistryItemFile;
     error: ProcessingError | ContentMissingError;
@@ -102,7 +102,7 @@ export const processFilesWithErrorCollection = (
       { concurrency: 5 } // Limited concurrency to prevent resource exhaustion
     );
 
-    const successful: ExtendedPureUIFile[] = [];
+    const successful: ExtendedDuskUIFile[] = [];
     const errors: Array<{
       file: RegistryItemFile;
       error: ProcessingError | ContentMissingError;

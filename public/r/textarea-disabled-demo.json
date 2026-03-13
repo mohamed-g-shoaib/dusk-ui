@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "textarea-disabled-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "textarea"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/textarea/textarea-disabled-demo.tsx",
-      "content": "import { Textarea } from \"@/registry/pure-ui/ui/textarea\";\r\n\r\nexport function TextareaDisabledDemo() {\r\n  return (\r\n    <Textarea placeholder=\"Can't type here\" disabled className=\"max-w-72\" />\r\n  );\r\n}\r\n",
+      "path": "src/registry/dusk-ui/examples/textarea/textarea-disabled-demo.tsx",
+      "content": "import { Textarea } from \"@/registry/dusk-ui/ui/textarea\";\n\nexport function TextareaDisabledDemo() {\n  return (\n    <Textarea placeholder=\"Can't type here\" disabled className=\"max-w-72\" />\n  );\n}\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

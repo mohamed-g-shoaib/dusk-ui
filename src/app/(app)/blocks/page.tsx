@@ -1,11 +1,11 @@
 import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import Link from "next/link";
 
-import { Button } from "@/registry/pure-ui/ui/button";
-import { CalendarBlock } from "@/registry/pure-ui/blocks/calendar/calendar-block";
-import { Calendar2Block } from "@/registry/pure-ui/blocks/calendar/calendar-2-block";
-import { Calendar3Block } from "@/registry/pure-ui/blocks/calendar/calendar-3-block";
-import { Calendar4Block } from "@/registry/pure-ui/blocks/calendar/calendar-4-block";
+import { Button } from "@/registry/dusk-ui/ui/button";
+import { CalendarBlock } from "@/registry/dusk-ui/blocks/calendar/calendar-block";
+import { Calendar2Block } from "@/registry/dusk-ui/blocks/calendar/calendar-2-block";
+import { Calendar3Block } from "@/registry/dusk-ui/blocks/calendar/calendar-3-block";
+import { Calendar4Block } from "@/registry/dusk-ui/blocks/calendar/calendar-4-block";
 
 export default function BlocksIndexPage() {
   return (

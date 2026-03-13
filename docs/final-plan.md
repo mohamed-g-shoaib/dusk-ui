@@ -13,7 +13,7 @@
 | **URL** | `https://dusk-ui.vercel.app` |
 | **Registry base** | `https://dusk-ui.vercel.app/r/{name}.json` |
 | **GitHub** | `https://github.com/<your-username>/dusk-ui` |
-| **Model** | Fork of Pure UI — incremental rebrand + evolution |
+| **Model** | Fork of Dusk UI — incremental rebrand + evolution |
 | **Distribution** | shadcn CLI copy-paste (`registry.json`) |
 
 ---
@@ -22,7 +22,7 @@
 
 | Layer | Choice | Notes |
 |---|---|---|
-| Framework | Next.js 16, App Router, Turbopack | Inherited from Pure UI |
+| Framework | Next.js 16, App Router, Turbopack | Inherited from Dusk UI |
 | React | 19.x | Concurrent, Actions, compiler |
 | Primitives | Base UI 1.0.0 | Stable release |
 | Styling | Tailwind CSS v4 | `@import "tailwindcss"`, no config file |
@@ -35,10 +35,10 @@
 | Node | 22.x enforced | `engines` field in `package.json` |
 | Color system | OKLCH | Perceptually uniform |
 | Color scheme | Monochrome (for now) | No brand accent color yet |
-| Icon set | `@tabler/icons-react` | Keep Pure UI's choice |
-| Heading font | Chillax | Keep Pure UI's choice |
-| Code font | Noto Mono | Keep Pure UI's choice |
-| Docs framework | `next-mdx-remote` | Keep Pure UI's approach, full control |
+| Icon set | `@tabler/icons-react` | Keep Dusk UI's choice |
+| Heading font | Chillax | Keep Dusk UI's choice |
+| Code font | Noto Mono | Keep Dusk UI's choice |
+| Docs framework | `next-mdx-remote` | Keep Dusk UI's approach, full control |
 | Analytics | Umami | Replace OpenPanel + Wandry |
 | Toast state | Zustand imperative | `toast.add(...)` outside React tree |
 | Deployment | Vercel | No Docker, no VPS |
@@ -48,12 +48,12 @@
 
 ## Phase 1 — Fork & Rebrand
 
-> Goal: Zero traces of Pure UI, Krishna, or MusKRI. Clean build on Vercel.
+> Goal: Zero traces of Dusk UI, Mohamed, or mohamed-g-shoaib. Clean build on Vercel.
 
 ### 1.1 — Fork & Clone
 
 ```bash
-# Fork MusKRI/pure-ui on GitHub
+# Fork mohamed-g-shoaib/dusk-ui on GitHub
 # Rename the fork to "dusk-ui"
 git clone https://github.com/<your-username>/dusk-ui
 cd dusk-ui
@@ -63,7 +63,7 @@ cd dusk-ui
 
 ### 1.2 — Delete Infrastructure Files
 
-Pure UI deploys via Docker on a VPS. Dusk UI deploys to Vercel. Delete everything Docker-related:
+Dusk UI deploys via Docker on a VPS. Dusk UI deploys to Vercel. Delete everything Docker-related:
 
 ```bash
 rm Dockerfile docker-compose.yml proxy.ts .env.example
@@ -75,16 +75,16 @@ rm -rf .github
 | `Dockerfile` | Docker VPS deploy — not needed on Vercel |
 | `docker-compose.yml` | Same |
 | `proxy.ts` | Local reverse proxy for the Docker setup |
-| `.github/workflows/deploy.yml` | SSH deploy to Krishna's VPS |
+| `.github/workflows/deploy.yml` | SSH deploy to Mohamed's VPS |
 | `.github/` | Whole folder — no CI needed initially |
-| `.env.example` | Krishna's OpenPanel analytics key slot |
+| `.env.example` | Mohamed's OpenPanel analytics key slot |
 
 ---
 
 ### 1.3 — Rename Registry Folder
 
 ```bash
-mv src/registry/pure-ui src/registry/dusk-ui
+mv src/registry/dusk-ui src/registry/dusk-ui
 ```
 
 This single rename cascades into every import in the codebase. Fix all broken imports in the next step.
@@ -97,16 +97,16 @@ Run these across the **entire repo** (editor global search or CLI `sed`):
 
 | Find | Replace |
 |---|---|
-| `@/registry/pure-ui/` | `@/registry/dusk-ui/` |
-| `"pure-ui"` | `"dusk-ui"` |
-| `"Pure UI"` | `"Dusk UI"` |
-| `PureUI` | `DuskUI` |
-| `pureUI` | `duskUI` |
-| `pure-ui` (non-path kebab) | `dusk-ui` |
-| `pure.kam-ui.com` | `dusk-ui.vercel.app` |
-| `MusKRI` | `<your-github-username>` |
-| `Krishna` | `Mohamed` |
-| `Built by Krishna` | `Built by Mohamed` |
+| `@/registry/dusk-ui/` | `@/registry/dusk-ui/` |
+| `"dusk-ui"` | `"dusk-ui"` |
+| `"Dusk UI"` | `"Dusk UI"` |
+| `DuskUI` | `DuskUI` |
+| `duskUI` | `duskUI` |
+| `dusk-ui` (non-path kebab) | `dusk-ui` |
+| `dusk-ui.vercel.app` | `dusk-ui.vercel.app` |
+| `mohamed-g-shoaib` | `<your-github-username>` |
+| `Mohamed` | `Mohamed` |
+| `Built by Mohamed` | `Built by Mohamed` |
 
 After running: do a repo-wide search for `pure` and `Pure` to catch any stragglers.
 
@@ -271,7 +271,7 @@ NEXT_PUBLIC_UMAMI_WEBSITE_ID=
 
 Bulk replace across all MDX files:
 ```
-https://pure.kam-ui.com/r/  →  https://dusk-ui.vercel.app/r/
+https://dusk-ui.vercel.app/r/  →  https://dusk-ui.vercel.app/r/
 ```
 
 ---
@@ -319,7 +319,7 @@ pnpm dev       # visual verification
 - [ ] Home page tagline is yours
 - [ ] Header logo/name shows "Dusk UI"
 - [ ] GitHub button links to your repo
-- [ ] No "Pure UI", "Krishna", or "MusKRI" visible anywhere in the UI
+- [ ] No "Dusk UI", "Mohamed", or "mohamed-g-shoaib" visible anywhere in the UI
 - [ ] No console errors or warnings
 - [ ] `pnpm build` exits 0
 
@@ -337,17 +337,17 @@ pnpm dev       # visual verification
 ### Phase 1 Master Checklist
 
 ```
-[ ] 1.  Fork MusKRI/pure-ui → rename fork to dusk-ui on GitHub
+[ ] 1.  Fork mohamed-g-shoaib/dusk-ui → rename fork to dusk-ui on GitHub
 [ ] 2.  Clone locally
 [ ] 3.  rm Dockerfile docker-compose.yml proxy.ts .env.example
 [ ] 4.  rm -rf .github
-[ ] 5.  mv src/registry/pure-ui → src/registry/dusk-ui
+[ ] 5.  mv src/registry/dusk-ui → src/registry/dusk-ui
 [ ] 6.  Global find-replace all brand strings (see 1.4 table)
 [ ] 7.  Repo-wide search for "pure"/"Pure" — catch stragglers
 [ ] 8.  package.json: name → "dusk-ui"
 [ ] 9.  src/app/layout.tsx: title + description
 [ ] 10. src/app/(home)/page.tsx: RollingText text + tagline
-[ ] 11. logo.tsx: PureUILogo → DuskUILogo
+[ ] 11. logo.tsx: DuskUILogo → DuskUILogo
 [ ] 12. github-button.tsx: URLs → your repo
 [ ] 13. components.json: registry URL → dusk-ui.vercel.app
 [ ] 14. src/registry/dusk-ui/registry.ts: name, homepage, import names
@@ -383,7 +383,7 @@ pnpm dev       # visual verification
 
 ## Phase 3 — Component Evolution
 
-> Diverging from Pure UI's design decisions, component by component. Build order = highest visibility first.
+> Diverging from Dusk UI's design decisions, component by component. Build order = highest visibility first.
 
 | Priority | Component | What to Evolve |
 |---|---|---|
@@ -400,7 +400,7 @@ pnpm dev       # visual verification
 
 ## Phase 4 — New Components
 
-> Pure UI does not have these. Add after Phase 3 is stable. Prioritize together.
+> Dusk UI does not have these. Add after Phase 3 is stable. Prioritize together.
 
 | Component | Base UI Primitive | Notes |
 |---|---|---|

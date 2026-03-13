@@ -1,15 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "input-otp-disabled-demo",
-  "type": "registry:example",
   "registryDependencies": [
     "input-otp"
   ],
   "files": [
     {
-      "path": "src/registry/pure-ui/examples/input-otp/input-otp-disabled-demo.tsx",
-      "content": "import {\r\n  InputOTP,\r\n  InputOTPGroup,\r\n  InputOTPSlot,\r\n  InputOTPSeparator,\r\n} from \"@/registry/pure-ui/ui/input-otp\";\r\n\r\nexport const InputOTPDisabledDemo = () => {\r\n  return (\r\n    <InputOTP maxLength={6} disabled>\r\n      <InputOTPGroup>\r\n        <InputOTPSlot index={0} />\r\n        <InputOTPSlot index={1} />\r\n        <InputOTPSlot index={2} />\r\n      </InputOTPGroup>\r\n      <InputOTPSeparator />\r\n      <InputOTPGroup>\r\n        <InputOTPSlot index={3} />\r\n        <InputOTPSlot index={4} />\r\n        <InputOTPSlot index={5} />\r\n      </InputOTPGroup>\r\n    </InputOTP>\r\n  );\r\n};\r\n",
+      "path": "src/registry/dusk-ui/examples/input-otp/input-otp-disabled-demo.tsx",
+      "content": "import {\n  InputOTP,\n  InputOTPGroup,\n  InputOTPSlot,\n  InputOTPSeparator,\n} from \"@/registry/dusk-ui/ui/input-otp\";\n\nexport const InputOTPDisabledDemo = () => {\n  return (\n    <InputOTP maxLength={6} disabled>\n      <InputOTPGroup>\n        <InputOTPSlot index={0} />\n        <InputOTPSlot index={1} />\n        <InputOTPSlot index={2} />\n      </InputOTPGroup>\n      <InputOTPSeparator />\n      <InputOTPGroup>\n        <InputOTPSlot index={3} />\n        <InputOTPSlot index={4} />\n        <InputOTPSlot index={5} />\n      </InputOTPGroup>\n    </InputOTP>\n  );\n};\n",
       "type": "registry:example"
     }
-  ]
+  ],
+  "type": "registry:example"
 }

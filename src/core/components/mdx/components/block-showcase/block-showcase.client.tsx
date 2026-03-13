@@ -3,17 +3,17 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { Collapsible } from "@base-ui/react/collapsible";
 
-import { ExtendedPureUIFile } from "@/lib/registry/component-processor";
+import { ExtendedDuskUIFile } from "@/lib/registry/component-processor";
 import { ExtendedRegistryItem } from "@/lib/registry/process-registry";
 
-import { Index } from "@/registry/pure-ui/__index__";
+import { Index } from "@/registry/dusk-ui/__index__";
 import { SourcePreview } from "./source-preview";
 import { cn } from "@/lib/classes";
 import { BlockShowcaseFiles } from "./block-showcase-files";
 import { BlockShowcaseCopyButton } from "./block-showcase-copy-button";
 
 interface BlockShowcaseClientProps {
-  processedFiles: ExtendedPureUIFile[];
+  processedFiles: ExtendedDuskUIFile[];
   item: ExtendedRegistryItem;
   name: string;
 }
@@ -45,7 +45,7 @@ export function BlockShowcaseClient({
   }, [processedFiles, activeFileIndex]);
 
   return (
-    <div className="PureUIBlockShowcase relative mb-12">
+    <div className="DuskUIBlockShowcase relative mb-12">
       <div className="flex flex-col bg-[#fafafa] dark:bg-muted rounded-2xl shadow-sm border border-border">
         <div className="relative bg-background rounded-2xl rounded-b-none border-b-[0.5px] border-border">
           {ComponentDemo ? (

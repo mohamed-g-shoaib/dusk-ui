@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import { useSidebar } from "../sidebar/use-sidebar";
 
-export const PureUISidebarToggleButton = () => {
+export const DuskUISidebarToggleButton = () => {
   const { isOpen, toggle, setToggleButtonRef } = useSidebar();
   const buttonRef = useRef<HTMLButtonElement>(null);
 

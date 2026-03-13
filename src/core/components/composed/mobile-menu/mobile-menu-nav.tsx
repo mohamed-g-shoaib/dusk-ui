@@ -2,7 +2,7 @@ import { Collapsible as CollapsiblePrimitive } from "@base-ui/react/collapsible"
 import { ChevronDownIcon } from "lucide-react";
 import Link from "next/link";
 
-import { pureUISidebarConfig } from "../sidebar/data";
+import { duskUISidebarConfig } from "../sidebar/data";
 import {
   isSidebarLink,
   SidebarGroupItem,
@@ -38,7 +38,7 @@ export function MobileMenuNav() {
         </CollapsiblePrimitive.Trigger>
         <CollapsiblePrimitive.Panel className="flex [&[hidden]:not([hidden='until-found'])]:hidden h-(--collapsible-panel-height) overflow-hidden transition-all ease-out data-ending-style:h-0 data-starting-style:h-0 duration-150">
           <div className="mt-1 flex cursor-text flex-col gap-1 py-2">
-            {pureUISidebarConfig.docs.map((item) => (
+            {duskUISidebarConfig.docs.map((item) => (
               <MobileMenuNavItem
                 key={item.id}
                 item={item}
@@ -59,7 +59,7 @@ export function MobileMenuNav() {
         </CollapsiblePrimitive.Trigger>
         <CollapsiblePrimitive.Panel className="flex [&[hidden]:not([hidden='until-found'])]:hidden h-(--collapsible-panel-height) overflow-hidden transition-all ease-out data-ending-style:h-0 data-starting-style:h-0 duration-150">
           <div className="mt-1 flex cursor-text flex-col gap-1 py-2">
-            {pureUISidebarConfig.components.map((item) => (
+            {duskUISidebarConfig.components.map((item) => (
               <MobileMenuNavItem
                 key={item.id}
                 item={item}
@@ -80,7 +80,7 @@ export function MobileMenuNav() {
         </CollapsiblePrimitive.Trigger>
         <CollapsiblePrimitive.Panel className="flex [&[hidden]:not([hidden='until-found'])]:hidden h-(--collapsible-panel-height) overflow-hidden transition-all ease-out data-ending-style:h-0 data-starting-style:h-0 duration-150">
           <div className="mt-1 flex cursor-text flex-col gap-1 py-2">
-            {pureUISidebarConfig.blocks.map((item) => (
+            {duskUISidebarConfig.blocks.map((item) => (
               <MobileMenuNavItem
                 key={item.id}
                 item={item}

@@ -2,7 +2,7 @@
 
 > This file is the **LLM-targeted cheat sheet** for autonomous component generation.  
 > Read this before writing any code. Obey every rule. No exceptions.  
-> **Last updated: March 13, 2026 — Pure UI pivot**
+> **Last updated: March 13, 2026 — Dusk UI pivot**
 
 ---
 
@@ -11,7 +11,7 @@
 | Key | Value |
 |---|---|
 | **Library name** | Dusk UI |
-| **Inspiration source** | Pure UI ([MusKRI/pure-ui](https://github.com/MusKRI/pure-ui)) |
+| **Inspiration source** | Dusk UI ([mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui)) |
 | **Distribution model** | shadcn CLI copy-paste (`registry.json`) |
 | **Stack** | Next.js 16 (App Router, Turbopack) · React 19 · Base UI 1.0 · Tailwind CSS v4 · TypeScript 5.9 strict |
 | **Styling engine** | `tailwind-variants` (`tv()`) — NOT `cva` |
@@ -407,7 +407,7 @@ User: npx shadcn add https://dusk-ui.com/registry/<component>
 
 | Library | Repo | Key patterns to study |
 |---|---|---|
-| **Pure UI** | [MusKRI/pure-ui](https://github.com/MusKRI/pure-ui) | **PRIMARY** — animation preset system, tv() slots, Tabs indicator, swiss accordion, registry pipeline |
+| **Dusk UI** | [mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui) | **PRIMARY** — animation preset system, tv() slots, Tabs indicator, swiss accordion, registry pipeline |
 | coss ui | [cosscom/coss](https://github.com/cosscom/coss) | `useRender`, `data-slot`, AGENTS.md |
 | Selia | [nauvalazhar/selia](https://github.com/nauvalazhar/selia) | OKLCH tokens, doc standards |
 | Spell UI | [xxtomm/spell-ui](https://github.com/xxtomm/spell-ui) | Motion v12 physics patterns |

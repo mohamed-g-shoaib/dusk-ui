@@ -7,7 +7,7 @@ export const MagicLink = ({ className, ...props }: MagicLinkProps) => {
     <a
       target="_blank"
       className={cn(
-        "PureLink group relative inline-flex items-center text-foreground font-medium underline underline-offset-3",
+        "DuskLink group relative inline-flex items-center text-foreground font-medium underline underline-offset-3",
         className
       )}
       {...props}

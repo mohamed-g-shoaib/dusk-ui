@@ -1,7 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "index",
-  "type": "registry:style",
   "dependencies": [
     "lucide-react",
     "tailwind-variants"
@@ -13,5 +12,6 @@
     "classes"
   ],
   "files": [],
-  "cssVars": {}
+  "cssVars": {},
+  "type": "registry:style"
 }
