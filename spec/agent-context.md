@@ -2,7 +2,7 @@
 
 > This file is the **LLM-targeted cheat sheet** for autonomous component generation.  
 > Read this before writing any code. Obey every rule. No exceptions.  
-> **Last updated: March 13, 2026 — Dusk UI pivot**
+> **Last updated: March 14, 2026 — Phase 1 completed and deployed**
 
 ---
 
@@ -11,7 +11,7 @@
 | Key | Value |
 |---|---|
 | **Library name** | Dusk UI |
-| **Inspiration source** | Dusk UI ([mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui)) |
+| **Inspiration source** | Pure UI ([MusKRI/pure-ui](https://github.com/MusKRI/pure-ui)) |
 | **Distribution model** | shadcn CLI copy-paste (`registry.json`) |
 | **Stack** | Next.js 16 (App Router, Turbopack) · React 19 · Base UI 1.0 · Tailwind CSS v4 · TypeScript 5.9 strict |
 | **Styling engine** | `tailwind-variants` (`tv()`) — NOT `cva` |
@@ -20,6 +20,18 @@
 | **Package manager** | pnpm |
 | **Node version** | 22.x (enforced via `engines`) |
 | **Color system** | OKLCH (perceptually uniform, dark-mode safe) |
+
+---
+
+## Current Status
+
+- Phase 1 is complete and live at `https://dusk-ui.vercel.app`
+- Registry paths are fully under `src/registry/dusk-ui/*`
+- Analytics uses Umami through first-party proxy routes:
+  - Script: `/metrics/lib.js`
+  - Event API: `/metrics/api/send`
+- `next-mdx-remote` is upgraded to v6
+- Package manager workflow is pnpm-only (`pnpm-lock.yaml`, no `package-lock.json`)
 
 ---
 
@@ -65,7 +77,7 @@ import { Tabs } from '@base-ui/react/tabs';
 import { tv, type VariantProps } from 'tailwind-variants';
 import { cn } from '@/lib/classes'; // clsx + tailwind-merge
 
-// Motion — DOC SITE ONLY (never in registry/ui/*)
+// Motion — DOC SITE ONLY (never in registry/dusk-ui/ui/*)
 import { motion, AnimatePresence, MotionConfig, LayoutGroup } from 'motion/react';
 
 // Icons (doc site)
@@ -222,7 +234,7 @@ const cssTransitionPresets = {
 
 ### When to Use Motion v12
 
-Motion is **only** acceptable in these cases (doc site / blocks, never in `registry/ui/`):
+Motion is **only** acceptable in these cases (doc site / blocks, never in `registry/dusk-ui/ui/`):
 
 | Use case | Pattern |
 |---|---|
@@ -365,17 +377,17 @@ LLM docs index: https://base-ui.com/llms.txt
 ## Build Pipeline
 
 ```
-src/registry/ui/<component>/index.tsx   ← hand-written source
+src/registry/dusk-ui/ui/<component>/index.tsx   ← hand-written source
         ↓
-npm run build:dusk-ui                   ← runs build-registry.ts
+pnpm run build:dusk-ui                  ← runs build-registry.ts
         ↓
-src/registry/__index__.tsx              ← AUTO-GENERATED (never edit)
+src/registry/dusk-ui/__index__.tsx      ← AUTO-GENERATED (never edit)
         ↓
-npm run registry:build                  ← runs shadcn build
+pnpm run registry:build                 ← runs shadcn build
         ↓
 registry.json                           ← public CLI manifest
         ↓
-User: npx shadcn add https://dusk-ui.com/registry/<component>
+User: npx shadcn add https://dusk-ui.vercel.app/r/<component>.json
 ```
 
 `prebuild` in `package.json` runs both steps before every `next build`.
@@ -386,12 +398,12 @@ User: npx shadcn add https://dusk-ui.com/registry/<component>
 
 | What | Where |
 |---|---|
-| Distributable components | `src/registry/ui/{component}/index.tsx` |
-| Registry manifest (hand-maintained) | `src/registry/registry.ts` |
-| Auto-generated barrel | `src/registry/__index__.tsx` |
+| Distributable components | `src/registry/dusk-ui/ui/{component}/index.tsx` |
+| Registry manifest (hand-maintained) | `src/registry/dusk-ui/registry.ts` |
+| Auto-generated barrel | `src/registry/dusk-ui/__index__.tsx` |
 | `registry.json` (CLI manifest) | `registry.json` (repo root) |
 | Doc-site components | `src/core/components/` |
-| Utilities bundled with components | `src/registry/lib/classes.ts` |
+| Utilities bundled with components | `src/registry/dusk-ui/lib/classes.ts` |
 | App-level utilities | `src/lib/classes.ts` |
 | Design tokens | `src/styles/globals.css` |
 | Partial CSS | `src/styles/partials/` |
@@ -407,7 +419,8 @@ User: npx shadcn add https://dusk-ui.com/registry/<component>
 
 | Library | Repo | Key patterns to study |
 |---|---|---|
-| **Dusk UI** | [mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui) | **PRIMARY** — animation preset system, tv() slots, Tabs indicator, swiss accordion, registry pipeline |
+| **Dusk UI** | [mohamed-g-shoaib/dusk-ui](https://github.com/mohamed-g-shoaib/dusk-ui) | **PRIMARY** — current implementation and deployment source |
+| **Pure UI** | [MusKRI/pure-ui](https://github.com/MusKRI/pure-ui) | Upstream reference for original architecture and patterns |
 | coss ui | [cosscom/coss](https://github.com/cosscom/coss) | `useRender`, `data-slot`, AGENTS.md |
 | Selia | [nauvalazhar/selia](https://github.com/nauvalazhar/selia) | OKLCH tokens, doc standards |
 | Spell UI | [xxtomm/spell-ui](https://github.com/xxtomm/spell-ui) | Motion v12 physics patterns |

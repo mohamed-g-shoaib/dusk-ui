@@ -1,7 +1,7 @@
 # Dusk UI — Final Plan
 
 > All decisions locked. This is the source of truth.
-> Date: March 13, 2026
+> Date: March 14, 2026
 
 ---
 
@@ -13,7 +13,7 @@
 | **URL** | `https://dusk-ui.vercel.app` |
 | **Registry base** | `https://dusk-ui.vercel.app/r/{name}.json` |
 | **GitHub** | `https://github.com/<your-username>/dusk-ui` |
-| **Model** | Fork of Dusk UI — incremental rebrand + evolution |
+| **Model** | Fork of Pure UI — incremental rebrand + evolution |
 | **Distribution** | shadcn CLI copy-paste (`registry.json`) |
 
 ---
@@ -22,7 +22,7 @@
 
 | Layer | Choice | Notes |
 |---|---|---|
-| Framework | Next.js 16, App Router, Turbopack | Inherited from Dusk UI |
+| Framework | Next.js 16, App Router, Turbopack | Inherited from Pure UI |
 | React | 19.x | Concurrent, Actions, compiler |
 | Primitives | Base UI 1.0.0 | Stable release |
 | Styling | Tailwind CSS v4 | `@import "tailwindcss"`, no config file |
@@ -35,10 +35,10 @@
 | Node | 22.x enforced | `engines` field in `package.json` |
 | Color system | OKLCH | Perceptually uniform |
 | Color scheme | Monochrome (for now) | No brand accent color yet |
-| Icon set | `@tabler/icons-react` | Keep Dusk UI's choice |
-| Heading font | Chillax | Keep Dusk UI's choice |
-| Code font | Noto Mono | Keep Dusk UI's choice |
-| Docs framework | `next-mdx-remote` | Keep Dusk UI's approach, full control |
+| Icon set | `@tabler/icons-react` | Keep Pure UI's choice |
+| Heading font | Chillax | Keep Pure UI's choice |
+| Code font | Noto Mono | Keep Pure UI's choice |
+| Docs framework | `next-mdx-remote` | Keep Pure UI's approach, full control |
 | Analytics | Umami | Replace OpenPanel + Wandry |
 | Toast state | Zustand imperative | `toast.add(...)` outside React tree |
 | Deployment | Vercel | No Docker, no VPS |
@@ -46,14 +46,30 @@
 
 ---
 
+## Progress Snapshot (March 14, 2026)
+
+- Phase 1 checklist is complete.
+- Production deployment is live at `https://dusk-ui.vercel.app`.
+- Umami is configured via first-party proxy routes (`/metrics/lib.js`, `/metrics/api/send`) to reduce adblocker loss.
+- `next-mdx-remote` is upgraded to `^6.0.0` (security update).
+- Repository is pnpm-only:
+  - `pnpm-lock.yaml` is the lockfile of record.
+  - `package-lock.json` is removed.
+  - `prebuild` runs with `pnpm`.
+- Env safety hardening is applied:
+  - `.gitignore` ignores `.env*` except `.env.example`.
+  - `.env.local` was removed from git history and remote was force-updated.
+
+---
+
 ## Phase 1 — Fork & Rebrand
 
-> Goal: Zero traces of Dusk UI, Mohamed, or mohamed-g-shoaib. Clean build on Vercel.
+> Goal: Zero traces of Pure UI, Krishna, or MusKRI. Clean build on Vercel.
 
 ### 1.1 — Fork & Clone
 
 ```bash
-# Fork mohamed-g-shoaib/dusk-ui on GitHub
+# Fork MusKRI/pure-ui on GitHub
 # Rename the fork to "dusk-ui"
 git clone https://github.com/<your-username>/dusk-ui
 cd dusk-ui
@@ -63,7 +79,7 @@ cd dusk-ui
 
 ### 1.2 — Delete Infrastructure Files
 
-Dusk UI deploys via Docker on a VPS. Dusk UI deploys to Vercel. Delete everything Docker-related:
+Pure UI deploys via Docker on a VPS. Dusk UI deploys to Vercel. Delete everything Docker-related:
 
 ```bash
 rm Dockerfile docker-compose.yml proxy.ts .env.example
@@ -75,16 +91,16 @@ rm -rf .github
 | `Dockerfile` | Docker VPS deploy — not needed on Vercel |
 | `docker-compose.yml` | Same |
 | `proxy.ts` | Local reverse proxy for the Docker setup |
-| `.github/workflows/deploy.yml` | SSH deploy to Mohamed's VPS |
+| `.github/workflows/deploy.yml` | SSH deploy to Krishna's VPS |
 | `.github/` | Whole folder — no CI needed initially |
-| `.env.example` | Mohamed's OpenPanel analytics key slot |
+| `.env.example` | Krishna's OpenPanel analytics key slot |
 
 ---
 
 ### 1.3 — Rename Registry Folder
 
 ```bash
-mv src/registry/dusk-ui src/registry/dusk-ui
+mv src/registry/pure-ui src/registry/dusk-ui
 ```
 
 This single rename cascades into every import in the codebase. Fix all broken imports in the next step.
@@ -97,16 +113,16 @@ Run these across the **entire repo** (editor global search or CLI `sed`):
 
 | Find | Replace |
 |---|---|
-| `@/registry/dusk-ui/` | `@/registry/dusk-ui/` |
-| `"dusk-ui"` | `"dusk-ui"` |
-| `"Dusk UI"` | `"Dusk UI"` |
-| `DuskUI` | `DuskUI` |
-| `duskUI` | `duskUI` |
-| `dusk-ui` (non-path kebab) | `dusk-ui` |
-| `dusk-ui.vercel.app` | `dusk-ui.vercel.app` |
-| `mohamed-g-shoaib` | `<your-github-username>` |
-| `Mohamed` | `Mohamed` |
-| `Built by Mohamed` | `Built by Mohamed` |
+| `@/registry/pure-ui/` | `@/registry/dusk-ui/` |
+| `"pure-ui"` | `"dusk-ui"` |
+| `"Pure UI"` | `"Dusk UI"` |
+| `PureUI` | `DuskUI` |
+| `pureUI` | `duskUI` |
+| `pure-ui` (non-path kebab) | `dusk-ui` |
+| `pure.kam-ui.com` | `dusk-ui.vercel.app` |
+| `MusKRI` | `<your-github-username>` |
+| `Krishna` | `Mohamed` |
+| `Built by Krishna` | `Built by Mohamed` |
 
 After running: do a repo-wide search for `pure` and `Pure` to catch any stragglers.
 
@@ -319,7 +335,7 @@ pnpm dev       # visual verification
 - [ ] Home page tagline is yours
 - [ ] Header logo/name shows "Dusk UI"
 - [ ] GitHub button links to your repo
-- [ ] No "Dusk UI", "Mohamed", or "mohamed-g-shoaib" visible anywhere in the UI
+- [ ] No "Pure UI", "Krishna", or "MusKRI" visible anywhere in the UI
 - [ ] No console errors or warnings
 - [ ] `pnpm build` exits 0
 
@@ -337,31 +353,31 @@ pnpm dev       # visual verification
 ### Phase 1 Master Checklist
 
 ```
-[ ] 1.  Fork mohamed-g-shoaib/dusk-ui → rename fork to dusk-ui on GitHub
-[ ] 2.  Clone locally
-[ ] 3.  rm Dockerfile docker-compose.yml proxy.ts .env.example
-[ ] 4.  rm -rf .github
-[ ] 5.  mv src/registry/dusk-ui → src/registry/dusk-ui
-[ ] 6.  Global find-replace all brand strings (see 1.4 table)
-[ ] 7.  Repo-wide search for "pure"/"Pure" — catch stragglers
-[ ] 8.  package.json: name → "dusk-ui"
-[ ] 9.  src/app/layout.tsx: title + description
-[ ] 10. src/app/(home)/page.tsx: RollingText text + tagline
-[ ] 11. logo.tsx: DuskUILogo → DuskUILogo
-[ ] 12. github-button.tsx: URLs → your repo
-[ ] 13. components.json: registry URL → dusk-ui.vercel.app
-[ ] 14. src/registry/dusk-ui/registry.ts: name, homepage, import names
-[ ] 15. pnpm remove @openpanel/nextjs @wandry/analytics-sdk
-[ ] 16. Create src/core/events/umami.tsx
-[ ] 17. Update layout.tsx analytics import
-[ ] 18. Create .env.example with Umami keys
-[ ] 19. src/content/*.mdx: bulk replace install command URLs
-[ ] 20. README.md: rewrite
-[ ] 21. pnpm install
-[ ] 22. pnpm build — must pass
-[ ] 23. pnpm dev — visual verification pass
-[ ] 24. Push to GitHub
-[ ] 25. Deploy to Vercel, add env vars
+[x] 1.  Fork MusKRI/pure-ui → rename fork to dusk-ui on GitHub
+[x] 2.  Clone locally
+[x] 3.  rm Dockerfile docker-compose.yml proxy.ts .env.example
+[x] 4.  rm -rf .github
+[x] 5.  mv src/registry/pure-ui → src/registry/dusk-ui
+[x] 6.  Global find-replace all brand strings (see 1.4 table)
+[x] 7.  Repo-wide search for "pure"/"Pure" — catch stragglers
+[x] 8.  package.json: name → "dusk-ui"
+[x] 9.  src/app/layout.tsx: title + description
+[x] 10. src/app/(home)/page.tsx: RollingText text + tagline
+[x] 11. logo.tsx: PureUILogo → DuskUILogo
+[x] 12. github-button.tsx: URLs → your repo
+[x] 13. components.json: registry URL → dusk-ui.vercel.app
+[x] 14. src/registry/dusk-ui/registry.ts: name, homepage, import names
+[x] 15. pnpm remove @openpanel/nextjs @wandry/analytics-sdk
+[x] 16. Create src/core/events/umami.tsx
+[x] 17. Update layout.tsx analytics import
+[x] 18. Create .env.example with Umami keys
+[x] 19. src/content/*.mdx: bulk replace install command URLs
+[x] 20. README.md: rewrite
+[x] 21. pnpm install
+[x] 22. pnpm build — pass
+[x] 23. pnpm dev — visual verification pass
+[x] 24. Push to GitHub
+[x] 25. Deploy to Vercel, add env vars
 ```
 
 ---
@@ -383,7 +399,7 @@ pnpm dev       # visual verification
 
 ## Phase 3 — Component Evolution
 
-> Diverging from Dusk UI's design decisions, component by component. Build order = highest visibility first.
+> Diverging from Pure UI's design decisions, component by component. Build order = highest visibility first.
 
 | Priority | Component | What to Evolve |
 |---|---|---|
@@ -400,7 +416,7 @@ pnpm dev       # visual verification
 
 ## Phase 4 — New Components
 
-> Dusk UI does not have these. Add after Phase 3 is stable. Prioritize together.
+> Pure UI does not have these. Add after Phase 3 is stable. Prioritize together.
 
 | Component | Base UI Primitive | Notes |
 |---|---|---|
@@ -432,7 +448,19 @@ Umami is open-source, self-hostable, and GDPR-compliant. Two deployment options:
 1. Deploy Umami on Railway / Supabase / PlanetScale
 2. Use your own domain for the script URL
 
-Either way, the `Analytics` component in `src/core/events/umami.tsx` is the same — only the env vars differ.
+### Current Production Setup (Implemented)
+
+- Script is loaded from first-party route: `/metrics/lib.js`
+- Events are sent to first-party route: `/metrics/api/send`
+- Next.js rewrites proxy both endpoints to Umami based on `NEXT_PUBLIC_UMAMI_SCRIPT_URL`
+- This reduces adblocker/anti-tracker dropoff compared to direct third-party script loading
+
+Required env vars:
+
+```bash
+NEXT_PUBLIC_UMAMI_SCRIPT_URL=https://cloud.umami.is/script.js
+NEXT_PUBLIC_UMAMI_WEBSITE_ID=<your-website-id>
+```
 
 ---
 
