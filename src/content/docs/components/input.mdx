@@ -1,0 +1,92 @@
+---
+title: Input
+description: Displays a form input field or a component that looks like an input field.
+---
+
+<ComponentShowcase name="input-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="input"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install clsx tailwind-merge @base-ui/react"
+        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
+        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
+        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+      />
+
+      <Step>Add cn function to your utils</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="input" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Input } from "@/components/ui/input";
+```
+
+```tsx
+<Input />
+```
+
+## Examples
+
+### Input Types
+
+<ComponentShowcase name="input-types-demo" />
+
+### Small Size
+
+<ComponentShowcase name="input-small-demo" />
+
+### Large Size
+
+<ComponentShowcase name="input-large-demo" />
+
+### Controlled Input
+
+<ComponentShowcase name="input-controlled-demo" />
+
+### Disabled Input
+
+<ComponentShowcase name="input-disabled-demo" />
+
+### File Type Input
+
+<ComponentShowcase name="input-file-type-demo" />

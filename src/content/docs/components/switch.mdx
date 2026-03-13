@@ -1,0 +1,94 @@
+---
+title: Switch
+description: The Switch component is used as an alternative between checked and not checked states.
+---
+
+<ComponentShowcase name="switch-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="switch"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install clsx tailwind-merge @base-ui/react"
+        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
+        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
+        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+      />
+
+      <Step>Add following code to your classes.ts file</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="switch" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+```
+
+```tsx
+<Switch />
+```
+
+## Examples
+
+### Interactive
+
+The switch component is non interactive by default. You can make it interactive by passing the `isInteractive` prop as `true`
+
+<ComponentShowcase name="switch-interactive-demo" />
+
+### With Label
+
+<ComponentShowcase name="switch-with-label" />
+
+### Disabled
+
+<ComponentShowcase name="switch-disabled-demo" />
+
+### Sizes
+
+<ComponentShowcase name="switch-sizes-demo" />
+
+### Controlled
+
+<ComponentShowcase name="switch-controlled-demo" />
+
+### Custom Card Style
+
+<ComponentShowcase name="custom-switch-card-style-demo" />

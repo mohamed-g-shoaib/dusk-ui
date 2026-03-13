@@ -1,0 +1,269 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@supports (animation-timeline: scroll()) {
+  @property --ft {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0;
+  }
+
+  @property --fb {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  .vertical-scroll-shadow {
+    --ft: 0;
+    --fb: 0px;
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      #000 var(--ft),
+      #000 calc(100% - var(--fb)),
+      transparent 100%
+    );
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    animation: fadeTop 1 linear both, fadeBottom 1 linear both;
+    animation-timeline: scroll(self), scroll(self);
+    animation-range: 0% 4%, 49% 100%;
+  }
+
+  @keyframes fadeTop {
+    from {
+      --ft: 0px;
+    }
+    to {
+      --ft: 30px;
+    }
+  }
+
+  @keyframes fadeBottom {
+    from {
+      --fb: 30px;
+    }
+    to {
+      --fb: 0px;
+    }
+  }
+}
+
+/* *********** Spinner Keyframes *************** */
+
+/* Default Spinner */
+@keyframes spinner-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.animate-spinner-ease-spin {
+  animation: spinner-spin 0.8s ease infinite;
+}
+
+.animate-spinner-linear-spin {
+  animation: spinner-spin 0.8s linear infinite;
+}
+
+/* Bars Spinner */
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.animate-fade-out {
+  animation: fade-out 1.2s linear 0s infinite normal none running;
+}
+
+/* Wave Spinner */
+
+@keyframes sway {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animate-sway {
+  animation: sway 0.75s ease infinite;
+}
+
+/* Dots Spinner */
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.4s infinite both;
+}
+
+/* Calendar Keyframes */
+
+/* React DayPicker animations */
+/* Animation keyframes for calendar month transitions */
+@keyframes rdp-slide_in_left {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rdp-slide_in_right {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes rdp-slide_out_left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rdp-slide_out_right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rdp-fade_in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rdp-fade_out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.rdp-weeks_before_enter {
+  animation: rdp-slide_in_left var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-weeks_before_exit {
+  animation: rdp-slide_out_left var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-weeks_after_enter {
+  animation: rdp-slide_in_right var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-weeks_after_exit {
+  animation: rdp-slide_out_right var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_after_enter {
+  animation: rdp-slide_in_left var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_before_exit {
+  animation: rdp-slide_out_right var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_before_enter {
+  animation: rdp-slide_in_right var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-root[dir="rtl"] .rdp-weeks_after_exit {
+  animation: rdp-slide_out_left var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-caption_after_enter {
+  animation: rdp-fade_in var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-caption_after_exit {
+  animation: rdp-fade_out var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-caption_before_enter {
+  animation: rdp-fade_in var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+.rdp-caption_before_exit {
+  animation: rdp-fade_out var(--rdp-animation_duration, 0.3s)
+    var(--rdp-animation_timing, cubic-bezier(0.4, 0, 0.2, 1)) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rdp-weeks_before_enter,
+  .rdp-weeks_before_exit,
+  .rdp-weeks_after_enter,
+  .rdp-weeks_after_exit,
+  .rdp-caption_after_enter,
+  .rdp-caption_after_exit,
+  .rdp-caption_before_enter,
+  .rdp-caption_before_exit {
+    animation: none;
+  }
+}

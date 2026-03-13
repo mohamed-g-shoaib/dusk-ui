@@ -1,0 +1,88 @@
+---
+title: Checkbox
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+<ComponentShowcase name="checkbox-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="checkbox"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install class-variance-authority clsx tailwind-merge @base-ui/react"
+        pnpmCommand="pnpm add class-variance-authority clsx tailwind-merge @base-ui/react"
+        yarnCommand="yarn add class-variance-authority clsx tailwind-merge @base-ui/react"
+        bunCommand="bun add class-variance-authority clsx tailwind-merge @base-ui/react"
+      />
+
+      <Step>Add cn function to your utils</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="checkbox" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Anatomy
+
+```tsx
+import { Checkbox, CheckboxRoot, CheckboxIndicator } from "@/components/ui/checkbox";
+
+// Option #1. Basic usage:
+<Checkbox />
+
+// Option #2. Custom usage:
+<CheckboxRoot>
+  <CheckboxIndicator />
+</CheckboxRoot>
+```
+
+## Usage
+
+### Disabled
+
+<ComponentShowcase name="checkbox-disabled-demo" />
+
+### Sizes
+
+<ComponentShowcase name="checkbox-sizes-demo" />
+
+### Radius
+
+<ComponentShowcase name="checkbox-radius-demo" />
+
+### Custom Icons
+
+<ComponentShowcase name="checkbox-icons-demo" />

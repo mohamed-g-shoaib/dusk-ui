@@ -1,0 +1,198 @@
+---
+title: Dialog
+description: A popup that opens on top of the entire page.
+---
+
+<ComponentShowcase name="dialog-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="dialog"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install class-variance-authority clsx tailwind-merge @base-ui/react motion"
+        pnpmCommand="pnpm add class-variance-authority clsx tailwind-merge @base-ui/react motion"
+        yarnCommand="yarn add class-variance-authority clsx tailwind-merge @base-ui/react motion"
+        bunCommand="bun add class-variance-authority clsx tailwind-merge @base-ui/react motion"
+      />
+
+      <Step>Add cn function to your utils</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="dialog" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Anatomy
+
+Import the component and assemble its parts:
+
+```tsx
+import { Dialog } from "@/components/ui/dialog";
+
+<Dialog>
+  <DialogTrigger />
+  <DialogPopup>
+    <DialogTitle />
+    <DialogDescription />
+    <DialogClose />
+  </DialogPopup>
+</Dialog>;
+```
+
+## Usage
+
+### Non Dismissible
+
+By default, the dialog is dismissible. You can make it non dismissible by passing `disablePointerDismissal={true}` to the `Dialog` component. This is useful when you want to prevent the user from closing the dialog by clicking outside of it or by pressing the escape key.
+
+<ComponentShowcase name="dialog-non-dismissible-demo" />
+
+### Controlled
+
+Use `open` and `onOpenChange` props if you need to access or control the state of the dialog.
+For example, you can control the dialog state in order to open it imperatively from another place in your app.
+
+```tsx noCopy add=4,5 highlight={14}
+const [open, setOpen] = React.useState(false);
+return (
+  <Dialog.Root
+    open={open}
+    onOpenChange={setOpen}
+  >
+    <Dialog.Trigger>Open</Dialog.Trigger>
+    <Dialog.Portal>
+      <Dialog.Popup>
+        <form
+          // Close the dialog once the form data is submitted
+          onSubmit={async () => {
+            await submitData();
+            setOpen(false);
+          }}
+        >
+          ...
+        </form>
+      </Dialog.Popup>
+    </Dialog.Portal>
+  </Dialog.Root>
+);
+```
+
+<ComponentShowcase name="dialog-controlled-demo" />
+
+### Non Modal
+
+The `modal` property controls how users can interact with the page when the dialog is open.
+
+**`modal={true}`** (default) -
+Focus is trapped, scrolling is locked, and outside interactions are disabled.
+
+**`modal={false}`** -
+Users can interact with both the dialog and the rest of the page freely.
+
+**`modal="trap-focus"`** -
+Focus is trapped for keyboard navigation, but scrolling and outside pointer interactions remain enabled.
+
+<ComponentShowcase name="dialog-non-modal-demo" />
+
+### Nested Dialogs
+
+<ComponentShowcase name="dialog-nested-demo" />
+
+Currently, two of animation presets (flip and slide) are direction aware. So, when dialogs are nested, those dialogs will be stacked as they are also direction aware.
+
+<ComponentShowcase name="dialog-nested-direction-aware-demo" />
+
+### Open from a Menu
+
+<ComponentShowcase name="dialog-open-from-menu-demo" />
+
+### Detached Triggers
+
+A separate guide is available for [Detached Triggers](/components/detached-triggers) because this concept is also applicable to other components like menu, popover, etc. So, I thought it would be better to keep it in a separate guide.
+
+You'll find using detached triggers with dialog in the [Detached Triggers - Dialog](/components/detached-triggers/dialog) guide.
+
+### Reduce Motion
+
+You can reduce the motion of the dialog by passing `reduceMotion` to the `DialogPopup` component.
+
+<ComponentShowcase name="dialog-reduce-motion-demo" />
+
+## Animation Presets
+
+### Scale
+
+<ComponentShowcase name="dialog-scale-demo" />
+
+### Top Flip
+
+<ComponentShowcase name="dialog-top-flip-demo" />
+
+### Bottom Flip
+
+<ComponentShowcase name="dialog-bottom-flip-demo" />
+
+### Left Flip
+
+<ComponentShowcase name="dialog-left-flip-demo" />
+
+### Right Flip
+
+<ComponentShowcase name="dialog-right-flip-demo" />
+
+### Top Slide
+
+<ComponentShowcase name="dialog-top-slide-demo" />
+
+### Bottom Slide
+
+<ComponentShowcase name="dialog-bottom-slide-demo" />
+
+### Left Slide
+
+<ComponentShowcase name="dialog-left-slide-demo" />
+
+### Right Slide
+
+<ComponentShowcase name="dialog-right-slide-demo" />
+
+### Fade
+
+<ComponentShowcase name="dialog-fade-demo" />
+
+### Wipe
+
+<ComponentShowcase name="dialog-wipe-demo" />

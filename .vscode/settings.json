@@ -1,0 +1,28 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    // tailwind-variants tv() function
+    ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    // For base, slots, variants, compoundVariants, etc.
+    [
+      "(base|slots|variants|compoundVariants|defaultVariants):\\s*{([^}]*)}",
+      ":\\s*[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    // For single line properties
+    [":\\s*[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "base",
+    ".*ClassName"
+  ],
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname(1)}/${dirname}/page",
+    "**/app/**/layout.tsx": "${dirname(1)}/${dirname}/layout",
+    "**/app/**/route.ts": "${dirname(1)}/${dirname}/route",
+    "**/app/page.tsx": "app/page",
+    "**/app/layout.tsx": "app/layout",
+    "**/index.{ts,tsx}": "${dirname}/index"
+  }
+}

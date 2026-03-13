@@ -1,0 +1,246 @@
+---
+title: Menu
+description: A list of actions in a dropdown, enhanced with keyboard navigation.
+---
+
+<ComponentShowcase name="menu-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="menu"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install @base-ui/react clsx tailwind-merge"
+        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
+        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
+        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+      />
+
+      <Step>Add cn function to your utils</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="menu" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Anatomy
+
+```tsx
+import {
+  Menu,
+  MenuTrigger,
+  MenuPopup,
+  MenuItem,
+  MenuGroup,
+  MenuGroupLabel,
+  MenuSeparator,
+  MenuCheckboxItem,
+  MenuRadioGroup,
+  MenuRadioItem,
+  MenuSub,
+  MenuSubTrigger,
+  MenuSubPopup,
+} from "@/components/ui/menu";
+
+<Menu>
+  <MenuTrigger />
+  <MenuPopup>
+    <MenuItem />
+    <MenuSeparator />
+    <MenuGroup>
+      <MenuGroupLabel />
+      <MenuItem />
+    </MenuGroup>
+    <MenuCheckboxItem />
+    <MenuRadioGroup>
+      <MenuRadioItem />
+    </MenuRadioGroup>
+    <MenuSub>
+      <MenuSubTrigger />
+      <MenuSubPopup />
+    </MenuSub>
+  </MenuPopup>
+</Menu>;
+```
+
+## Usage
+
+### Basic
+
+<ComponentShowcase name="menu-basic-demo" />
+
+### With Arrow
+
+You can pass `showArrow` as true to `MenuPopup` to show arrow on menu. By default, it is false.
+
+**Tip**: If you want to use arrow on menu, make sure to keep `sideOffset` not less than 8.
+
+<ComponentShowcase name="menu-with-arrow-demo" />
+
+### Sides
+
+You can pass `side` to `MenuPopup` to change the side of the menu. By default, it is `bottom`.
+
+<ComponentShowcase name="menu-sides-demo" />
+
+### Open on Hover
+
+By default, Menu opens when the trigger is clicked. You can pass `openOnHover` to MenuTrigger to open it when the trigger is hovered.
+
+<ComponentShowcase name="menu-with-hover-demo" />
+
+### Checkboxes
+
+<ComponentShowcase name="menu-checkboxes-demo" />
+
+By default, clicking on a checkbox item will not close the menu. You can pass `closeOnClick` to `MenuCheckboxItem` to close the menu when the checkbox item is clicked.
+
+```tsx add=2
+<MenuCheckboxItem
+  closeOnClick
+>
+  <span>Checkbox Item</span>
+</MenuCheckboxItem>
+```
+
+### Radio Group
+
+<ComponentShowcase name="menu-radio-group-demo" />
+
+By default, clicking on a radio item will not close the menu. You can pass `closeOnClick` to `MenuRadioItem` to close the menu when the radio item is clicked.
+
+```tsx add=2
+<MenuRadioItem
+  closeOnClick
+>
+  <span>Radio Item</span>
+</MenuRadioItem>
+```
+
+You can use custom active icon for the radio group by passing the `activeIcon` prop to the `MenuRadioGroup` component. See the example below.
+
+<ComponentShowcase name="menu-radiogroup-with-custom-icon-demo" />
+
+### With Groups
+
+<ComponentShowcase name="menu-with-groups-demo" />
+
+### Nested menu
+
+<ComponentShowcase name="menu-nested-demo" />
+
+### Navigating to another page
+
+Use the `render` prop to compose a menu item with an anchor element.
+
+```tsx add=2
+<MenuItem
+  render={<a href="/projects">Go to Projects</a>}
+/>
+```
+
+### Open a dialog
+
+In order to open a dialog using a menu, control the dialog state and open it imperatively using the `onClick` handler on the menu item.
+
+```tsx noCopy
+import * as React from "react";
+import { Dialog } from "@base-ui/react/dialog";
+import { Menu } from "@base-ui/react/menu";
+
+function ExampleMenu() {
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
+  return (
+    <React.Fragment>
+      <Menu.Root>
+        <Menu.Trigger>Open menu</Menu.Trigger>
+        <Menu.Portal>
+          <Menu.Positioner>
+            <Menu.Popup>
+              {/* Open the dialog when the menu item is clicked */}
+              <Menu.Item onClick={() => setDialogOpen(true)}>
+                Open dialog
+              </Menu.Item>
+            </Menu.Popup>
+          </Menu.Positioner>
+        </Menu.Portal>
+      </Menu.Root>
+
+      {/* Control the dialog state */}
+      <Dialog.Root open={dialogOpen} onOpenChange={setDialogOpen}>
+        <Dialog.Portal>
+          <Dialog.Backdrop />
+          <Dialog.Popup>{/* Rest of the dialog */}</Dialog.Popup>
+        </Dialog.Portal>
+      </Dialog.Root>
+    </React.Fragment>
+  );
+}
+```
+
+You can see the full example [here](/components/dialog).
+
+## Popup Animation
+
+You can pass `animationPreset` to `MenuPopup` to change the animation of the popup. By default, it is `scale`.
+
+### Scale
+
+<ComponentShowcase name="menu-scale-demo" />
+
+### Wipe
+
+<ComponentShowcase name="menu-wipe-demo" />
+
+### Wipe Scale
+
+<ComponentShowcase name="menu-wipe-scale-demo" />
+
+### Motion
+
+<ComponentShowcase name="menu-motion-demo" />
+
+### Motion Blur
+
+<ComponentShowcase name="menu-motion-blur-demo" />
+
+### Slide Outside
+
+<ComponentShowcase name="menu-slide-outside-demo" />
+
+### Slide Inside
+
+<ComponentShowcase name="menu-slide-inside-demo" />

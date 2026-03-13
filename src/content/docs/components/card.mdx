@@ -1,0 +1,93 @@
+---
+title: Card
+description: A content container for grouping related information.
+---
+
+<ComponentShowcase name="card-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="card"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install Dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install clsx tailwind-merge"
+        pnpmCommand="pnpm add clsx tailwind-merge"
+        yarnCommand="yarn add clsx tailwind-merge"
+        bunCommand="bun add clsx tailwind-merge"
+      />
+
+      <Step>Add cn function to your utils</Step>
+
+      ```ts filename="lib/classes.ts"
+      import { clsx, type ClassValue } from "clsx";
+      import { twMerge } from "tailwind-merge";
+
+      export function cn(...inputs: ClassValue[]) {
+        return twMerge(clsx(inputs));
+      }
+      ```
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="card" />
+
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Anatomy
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+
+<Card>
+  <CardHeader>
+    <CardTitle />
+    <CardDescription />
+  </CardHeader>
+  <CardContent />
+  <CardFooter />
+</Card>;
+```
+
+## Usage
+
+### Horizontal Layout
+
+<ComponentShowcase name="card-horizontal-layout" />
+
+### With Image
+
+<ComponentShowcase name="card-with-image-demo" />
+
+### With Background Images
+
+<ComponentShowcase name="card-with-background-images-demo" />

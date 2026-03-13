@@ -1,0 +1,59 @@
+---
+title: Spinner
+description: An indicator that can be used to show a loading state.
+---
+
+<ComponentShowcase name="spinner-demo" />
+
+## Installation
+
+<Tabs defaultValue="terminal">
+  <TabsList>
+    <TabsTrigger value="terminal">
+      <Terminal className="w-4 h-4" />
+      Terminal
+    </TabsTrigger>
+    <TabsTrigger value="manual">
+      <Code2 className="w-4 h-4" />
+      Manual
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="terminal">
+    <InstallationCommands
+      type="registry-installation"
+      registryPath="spinner"
+    />
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Install dependencies</Step>
+
+      <InstallationCommands
+        type="package-installation"
+        npmCommand="npm install tailwind-variants"
+        pnpmCommand="pnpm add tailwind-variants"
+        yarnCommand="yarn add tailwind-variants"
+        bunCommand="bun add tailwind-variants"
+      />
+
+      <Step>Copy and paste the following code into your project</Step>
+
+      <ComponentCodePreview name="spinner" />
+    </Steps>
+
+  </TabsContent>
+</Tabs>
+
+## Usage
+
+```tsx
+import { Spinner } from "@/components/ui/spinner";
+```
+
+```tsx
+<Spinner />
+```
+
+### Sizes
+
+<ComponentShowcase name="spinner-sizes-demo" />
