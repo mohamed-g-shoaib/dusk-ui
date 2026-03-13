@@ -14,7 +14,7 @@
     "format": "biome format --write",
     "build:dusk-ui": "npx tsx --tsconfig ./tsconfig.scripts.json ./src/scripts/build-registry.ts",
     "registry:build": "shadcn build",
-    "prebuild": "npm run build:dusk-ui && npm run registry:build"
+    "prebuild": "pnpm run build:dusk-ui && pnpm run registry:build"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
@@ -31,7 +31,7 @@
     "lucide-react": "^0.545.0",
     "motion": "^12.23.22",
     "next": "^16.0.10",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
     "react": "^19.2.3",
     "react-day-picker": "^9.11.3",
