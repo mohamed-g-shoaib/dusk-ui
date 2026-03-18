@@ -29,11 +29,8 @@ description: A common form component for choosing a predefined value in a dropdo
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="select"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -222,3 +219,4 @@ Base UI introduces the `alignItemWithTrigger` prop to control whether the `Selec
   <SelectContent>
 </Select>
 ```
+

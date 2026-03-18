@@ -29,11 +29,8 @@ description: An input combined with a list of predefined items to select.
     <Step>Install Dependencies</Step>
 
     <InstallationCommands
-      type="package-installation"
-      npmCommand="npm install @base-ui/react clsx tailwind-merge"
-      pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-      yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-      bunCommand="bun add @base-ui/react clsx tailwind-merge"
+      type="registry-package-installation"
+      registryPath="combobox"
     />
     </Steps>
 
@@ -123,3 +120,4 @@ You can show clear button by passing `isClearable` prop to the `ComboboxInput` c
 ### Grouping Items
 
 <ComponentShowcase name="combobox-grouping-items-demo" />
+

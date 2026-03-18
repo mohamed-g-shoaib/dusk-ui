@@ -28,11 +28,8 @@ description: Used to trigger an action or event, such as submitting a form, disp
     <Steps>
       <Step>Install Dependencies</Step>
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install tailwind-variants clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add tailwind-variants clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add tailwind-variants clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add tailwind-variants clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="button"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -165,3 +162,4 @@ If you’re already familiar with Radix UI and shadcn/ui, this guide highlights 
   Log in
 </Button>
 ```
+

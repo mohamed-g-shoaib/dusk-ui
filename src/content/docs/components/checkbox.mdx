@@ -29,11 +29,8 @@ description: A control that allows the user to toggle between checked and not ch
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install class-variance-authority clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add class-variance-authority clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add class-variance-authority clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add class-variance-authority clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="checkbox"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -86,3 +83,4 @@ import { Checkbox, CheckboxRoot, CheckboxIndicator } from "@/components/ui/check
 ### Custom Icons
 
 <ComponentShowcase name="checkbox-icons-demo" />
+

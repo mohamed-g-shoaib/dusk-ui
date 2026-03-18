@@ -29,11 +29,8 @@ description: Tooltips display a brief, informative message that appears when a u
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install motion @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add motion @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add motion @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add motion @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="tooltip"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -188,3 +185,4 @@ If you’re already familiar with Radix UI and shadcn/ui, this guide highlights 
   <TooltipPopup>Helpful hint</TooltipPopup>
 </Tooltip>
 ```
+

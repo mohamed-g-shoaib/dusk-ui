@@ -29,11 +29,8 @@ description: Displays a form input field or a component that looks like an input
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="input"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -90,3 +87,4 @@ import { Input } from "@/components/ui/input";
 ### File Type Input
 
 <ComponentShowcase name="input-file-type-demo" />
+

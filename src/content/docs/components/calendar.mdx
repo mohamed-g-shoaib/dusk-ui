@@ -33,11 +33,8 @@ See all calendar blocks in the [Blocks Library](/blocks/calendar) page.
       <Step>Install Dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge react-day-picker"
-        pnpmCommand="pnpm add clsx tailwind-merge react-day-picker"
-        yarnCommand="yarn add clsx tailwind-merge react-day-picker"
-        bunCommand="bun add clsx tailwind-merge react-day-picker"
+        type="registry-package-installation"
+        registryPath="calendar"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -224,3 +221,4 @@ You can animate the calendar by adding the `animate` prop.
 ```
 
 <ComponentShowcase name="calendar-animate-demo" />
+

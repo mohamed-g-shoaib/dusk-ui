@@ -29,11 +29,8 @@ description: A component for toggling between related panels on the same page.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="tabs"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -107,3 +104,4 @@ You can use the `TabsPanel` component to render the content of the tabs.
 If content of the tabs vary in height, you can use the `TabsPanelsWrapper` component to wrap tab panels and the height will be animated smoothly.
 
 <ComponentShowcase name="tabs-auto-height-demo" />
+

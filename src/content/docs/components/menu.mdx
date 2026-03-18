@@ -29,11 +29,8 @@ description: A list of actions in a dropdown, enhanced with keyboard navigation.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="menu"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -244,3 +241,4 @@ You can pass `animationPreset` to `MenuPopup` to change the animation of the pop
 ### Slide Inside
 
 <ComponentShowcase name="menu-slide-inside-demo" />
+
