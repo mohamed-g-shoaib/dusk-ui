@@ -1,5 +1,6 @@
 import { Effect } from "effect";
 import { processFilesWithErrorCollection } from "@/lib/registry/component-processor";
+import type { ExtendedRegistryItem } from "@/lib/registry/process-registry";
 import { getComponentRegistryItemCached } from "@/lib/registry/process-registry";
 import { ComponentCodePreviewClient } from "./component-code-preview.client";
 
@@ -10,7 +11,7 @@ interface ComponentCodePreviewProps {
 async function collectComponentBundle(
   name: string,
   visited = new Set<string>(),
-) {
+): Promise<ExtendedRegistryItem[]> {
   if (visited.has(name)) {
     return [];
   }
