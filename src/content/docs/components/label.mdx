@@ -29,11 +29,8 @@ description: Renders an accessible label associated with controls.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge"
-        pnpmCommand="pnpm add clsx tailwind-merge"
-        yarnCommand="yarn add clsx tailwind-merge"
-        bunCommand="bun add clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="label"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -70,3 +67,4 @@ import { Label } from "@/components/ui/label";
 ### With Checkbox
 
 <ComponentShowcase name="label-with-checkbox" />
+

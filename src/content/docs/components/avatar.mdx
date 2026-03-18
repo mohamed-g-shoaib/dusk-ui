@@ -29,11 +29,8 @@ description: An image element with a fallback for representing the user.
     <Step>Install Dependencies</Step>
 
     <InstallationCommands
-      type="package-installation"
-      npmCommand="npm install @base-ui/react clsx tailwind-merge"
-      pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-      yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-      bunCommand="bun add @base-ui/react clsx tailwind-merge"
+      type="registry-package-installation"
+      registryPath="avatar"
     />
     </Steps>
 
@@ -81,3 +78,4 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 ### Grouping
 
 <ComponentShowcase name="avatar-grouping-demo" />
+

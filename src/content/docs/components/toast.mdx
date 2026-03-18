@@ -56,11 +56,8 @@ description: Display transient, customizable popup messages that appear on scree
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="toast"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -151,3 +148,4 @@ You can change the radius of the toast by passing the `radius` property in `data
 ### Promise
 
 <ComponentShowcase name="toast-promise-demo" />
+

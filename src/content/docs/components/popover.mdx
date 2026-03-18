@@ -29,11 +29,8 @@ description: An accessible popup anchored to a button.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install motion @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add motion @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add motion @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add motion @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="popover"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -167,3 +164,4 @@ You can pass `sideOffset` to `PopoverPopup` to change the offset of the popover.
 This example shows how to use a custom trigger for the popover. It also uses the `openOnHover` prop to open the popover when the trigger is hovered.
 
 <ComponentShowcase name="popover-custom-trigger-demo" />
+

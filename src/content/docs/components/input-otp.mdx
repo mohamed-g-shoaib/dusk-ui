@@ -29,11 +29,8 @@ description: Accessible one-time password component with copy paste functionalit
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install input-otp motion class-variance-authority clsx"
-        pnpmCommand="pnpm add input-otp motion class-variance-authority clsx"
-        yarnCommand="yarn add input-otp motion class-variance-authority clsx"
-        bunCommand="bun add input-otp motion class-variance-authority clsx"
+        type="registry-package-installation"
+        registryPath="input-otp"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -106,3 +103,4 @@ You can use `pattern` prop on `InputOTP` component to restrict the input to a sp
 ### Controlled
 
 <ComponentShowcase name="input-otp-controlled-demo" />
+

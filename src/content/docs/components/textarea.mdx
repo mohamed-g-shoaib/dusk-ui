@@ -29,11 +29,8 @@ description: Displays a form textarea or a component that looks like a textarea.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="textarea"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -82,3 +79,4 @@ import { Textarea } from "@/components/ui/textarea";
 ### Controlled Textarea
 
 <ComponentShowcase name="textarea-controlled-demo" />
+

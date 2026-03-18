@@ -29,11 +29,8 @@ description: A popup that opens on top of the entire page.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install class-variance-authority clsx tailwind-merge @base-ui/react motion"
-        pnpmCommand="pnpm add class-variance-authority clsx tailwind-merge @base-ui/react motion"
-        yarnCommand="yarn add class-variance-authority clsx tailwind-merge @base-ui/react motion"
-        bunCommand="bun add class-variance-authority clsx tailwind-merge @base-ui/react motion"
+        type="registry-package-installation"
+        registryPath="dialog"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -196,3 +193,4 @@ You can reduce the motion of the dialog by passing `reduceMotion` to the `Dialog
 ### Wipe
 
 <ComponentShowcase name="dialog-wipe-demo" />
+

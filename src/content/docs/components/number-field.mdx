@@ -29,11 +29,8 @@ description: A numeric input element with increment and decrement buttons, and a
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="number-field"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -137,3 +134,4 @@ You can pass `step` prop to `NumberField` component to set the step of the input
 ### Formatting
 
 <ComponentShowcase name="number-field-formatting-demo" />
+

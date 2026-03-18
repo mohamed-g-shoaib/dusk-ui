@@ -29,11 +29,8 @@ description: Display additional information or actions to an input or textarea.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="input-group"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -127,3 +124,4 @@ Add labels within input groups to improve accessibility.
 Pair input groups with menu / dropdown menus for complex interactions.
 
 <ComponentShowcase name="input-group-menu-demo" />
+

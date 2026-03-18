@@ -1,10 +1,11 @@
-import { Effect, Array as EffectArray, Option } from "effect";
+import { Effect, Option } from "effect";
 import { highlightCode } from "@/lib/mdx/code-highlighter";
 import {
+  getDependencyInstallCommand,
   getNamespacedRegistryInstallationCommand,
-  getRegistryInstallationCommand,
   type PackageManager,
 } from "@/lib/mdx/package-managers";
+import { registry } from "@/registry/dusk-ui/registry";
 
 export interface InstallationTab {
   name: string; // npm, pnpm, yarn, bun
@@ -14,7 +15,10 @@ export interface InstallationTab {
 }
 
 export interface InstallationCommandsProps {
-  type?: "package-installation" | "registry-installation";
+  type?:
+    | "package-installation"
+    | "registry-installation"
+    | "registry-package-installation";
   registryPath?: string;
   npmCommand?: string;
   pnpmCommand?: string;
@@ -22,11 +26,37 @@ export interface InstallationCommandsProps {
   bunCommand?: string;
 }
 
+function collectRegistryBundleItems(
+  registryPath: string,
+  visited = new Set<string>(),
+): (typeof registry.items)[number][] {
+  if (visited.has(registryPath)) {
+    return [];
+  }
+
+  visited.add(registryPath);
+
+  const registryItem = registry.items.find(
+    (item) => item.name === registryPath,
+  );
+
+  if (!registryItem) {
+    return [];
+  }
+
+  return [
+    registryItem,
+    ...(registryItem.registryDependencies ?? [])
+      .filter((dependency) => dependency !== "classes")
+      .flatMap((dependency) => collectRegistryBundleItems(dependency, visited)),
+  ];
+}
+
 /**
  * Processes installation commands props and generates array of InstallationTab
  */
 export const processInstallationCommands = (
-  props: InstallationCommandsProps
+  props: InstallationCommandsProps,
 ): Effect.Effect<InstallationTab[], never> =>
   Effect.gen(function* () {
     const {
@@ -41,7 +71,7 @@ export const processInstallationCommands = (
     // Handle registry-installation type
     if (type === "registry-installation") {
       const pathOption = Option.fromNullable(registryPath).pipe(
-        Option.filter((path) => path.trim() !== "")
+        Option.filter((path) => path.trim() !== ""),
       );
 
       if (Option.isNone(pathOption)) {
@@ -49,6 +79,18 @@ export const processInstallationCommands = (
       }
 
       return yield* generateRegistryInstallationTabs(pathOption.value);
+    }
+
+    if (type === "registry-package-installation") {
+      const pathOption = Option.fromNullable(registryPath).pipe(
+        Option.filter((path) => path.trim() !== ""),
+      );
+
+      if (Option.isNone(pathOption)) {
+        return [];
+      }
+
+      return yield* generateRegistryPackageInstallationTabs(pathOption.value);
     }
 
     // Handle package-installation type
@@ -69,7 +111,7 @@ export const processInstallationCommands = (
  * Generates installation tabs for registry-based installations
  */
 const generateRegistryInstallationTabs = (
-  registryPath: string
+  registryPath: string,
 ): Effect.Effect<InstallationTab[], never> =>
   Effect.gen(function* () {
     const packageManagers: PackageManager[] = ["npm", "pnpm", "yarn", "bun"];
@@ -83,7 +125,7 @@ const generateRegistryInstallationTabs = (
           try {
             command = getNamespacedRegistryInstallationCommand(
               registryPath,
-              manager
+              manager,
             );
           } catch {
             return {
@@ -98,7 +140,7 @@ const generateRegistryInstallationTabs = (
           let highlightedContent: string;
           try {
             highlightedContent = yield* Effect.promise(() =>
-              highlightCode(command, { lang: "bash" })
+              highlightCode(command, { lang: "bash" }),
             );
           } catch {
             // Fallback to unhighlighted command if highlighting fails
@@ -111,12 +153,72 @@ const generateRegistryInstallationTabs = (
             rawContent: command,
             language: "bash" as const,
           };
-        })
+        }),
       ),
-      { concurrency: 5 } // Limit concurrency to prevent resource exhaustion
+      { concurrency: 5 }, // Limit concurrency to prevent resource exhaustion
     );
 
     // Filter out tabs with empty content
+    return tabs.filter((tab) => tab.rawContent !== "");
+  });
+
+/**
+ * Generates dependency installation tabs from registry metadata
+ */
+const generateRegistryPackageInstallationTabs = (
+  registryPath: string,
+): Effect.Effect<InstallationTab[], never> =>
+  Effect.gen(function* () {
+    const registryItems = collectRegistryBundleItems(registryPath);
+
+    if (registryItems.length === 0) {
+      return [];
+    }
+
+    const dependencies = registryItems.reduce<string[]>(
+      (allDependencies, item) => {
+        for (const dependency of item.dependencies ?? []) {
+          if (!allDependencies.includes(dependency)) {
+            allDependencies.push(dependency);
+          }
+        }
+
+        return allDependencies;
+      },
+      [],
+    );
+
+    if (dependencies.length === 0) {
+      return [];
+    }
+
+    const packageManagers: PackageManager[] = ["npm", "pnpm", "yarn", "bun"];
+
+    const tabs = yield* Effect.all(
+      packageManagers.map((manager) =>
+        Effect.gen(function* () {
+          const command = getDependencyInstallCommand(dependencies, manager);
+
+          let highlightedContent: string;
+          try {
+            highlightedContent = yield* Effect.promise(() =>
+              highlightCode(command, { lang: "bash" }),
+            );
+          } catch {
+            highlightedContent = command;
+          }
+
+          return {
+            name: manager,
+            content: highlightedContent,
+            rawContent: command,
+            language: "bash" as const,
+          };
+        }),
+      ),
+      { concurrency: 5 },
+    );
+
     return tabs.filter((tab) => tab.rawContent !== "");
   });
 
@@ -138,12 +240,16 @@ const generatePackageInstallationTabs = (commands: {
       { manager: "pnpm" as PackageManager, command: pnpmCommand },
       { manager: "yarn" as PackageManager, command: yarnCommand },
       { manager: "bun" as PackageManager, command: bunCommand },
-    ]
-      .filter(({ command }) => Boolean(command?.trim()))
-      .map(({ manager, command }) => ({
+    ].flatMap(({ manager, command }) => {
+      if (!command?.trim()) {
+        return [];
+      }
+
+      return {
         manager,
-        command: command!,
-      })) as Array<{
+        command,
+      };
+    }) satisfies Array<{
       manager: PackageManager;
       command: string;
     }>;
@@ -156,7 +262,7 @@ const generatePackageInstallationTabs = (commands: {
           let highlightedContent: string;
           try {
             highlightedContent = yield* Effect.promise(() =>
-              highlightCode(command, { lang: "bash" })
+              highlightCode(command, { lang: "bash" }),
             );
           } catch {
             // Fallback to unhighlighted command if highlighting fails
@@ -169,9 +275,9 @@ const generatePackageInstallationTabs = (commands: {
             rawContent: command,
             language: "bash" as const,
           };
-        })
+        }),
       ),
-      { concurrency: 5 } // Limit concurrency to prevent resource exhaustion
+      { concurrency: 5 }, // Limit concurrency to prevent resource exhaustion
     );
 
     return tabs;

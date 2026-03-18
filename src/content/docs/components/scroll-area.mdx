@@ -29,11 +29,8 @@ description: A native scroll container with custom scrollbars.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="scroll-area"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -115,3 +112,4 @@ You can control the scroll shadows using the `scrollShadow` prop. It can be set 
 ### Both
 
 <ComponentShowcase name="scroll-area-both-shadow-demo" />
+

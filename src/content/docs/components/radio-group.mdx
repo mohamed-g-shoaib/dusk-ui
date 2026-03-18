@@ -29,11 +29,8 @@ description: A set of checkable buttons—known as radio buttons—where no more
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install @base-ui/react clsx tailwind-merge"
-        pnpmCommand="pnpm add @base-ui/react clsx tailwind-merge"
-        yarnCommand="yarn add @base-ui/react clsx tailwind-merge"
-        bunCommand="bun add @base-ui/react clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="radio-group"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -107,3 +104,4 @@ You can control the value of the radio group by passing the `value` prop to the 
 ### Disabled
 
 <ComponentShowcase name="radio-group-disabled-demo" />
+

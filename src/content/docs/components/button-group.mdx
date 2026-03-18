@@ -28,11 +28,8 @@ description: A container that groups related buttons together with consistent st
     <Steps>
       <Step>Install Dependencies</Step>
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install tailwind-variants clsx tailwind-merge @base-ui/react"
-        pnpmCommand="pnpm add tailwind-variants clsx tailwind-merge @base-ui/react"
-        yarnCommand="yarn add tailwind-variants clsx tailwind-merge @base-ui/react"
-        bunCommand="bun add tailwind-variants clsx tailwind-merge @base-ui/react"
+        type="registry-package-installation"
+        registryPath="button-group"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -56,12 +53,15 @@ description: A container that groups related buttons together with consistent st
 
 ## Usage
 
+This example also uses the `Button` component. Install `button` too if you want to follow it exactly.
+
 ```tsx
 import {
   ButtonGroup,
   ButtonGroupSeparator,
   ButtonGroupText,
 } from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
 ```
 
 ```tsx
@@ -138,3 +138,4 @@ Pair with a `Select` component.
 Use with a `Popover` component.
 
 <ComponentShowcase name="button-group-popover-demo" />
+

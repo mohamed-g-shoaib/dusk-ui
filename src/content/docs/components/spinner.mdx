@@ -29,11 +29,8 @@ description: An indicator that can be used to show a loading state.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install tailwind-variants"
-        pnpmCommand="pnpm add tailwind-variants"
-        yarnCommand="yarn add tailwind-variants"
-        bunCommand="bun add tailwind-variants"
+        type="registry-package-installation"
+        registryPath="spinner"
       />
 
       <Step>Copy and paste the following code into your project</Step>
@@ -57,3 +54,4 @@ import { Spinner } from "@/components/ui/spinner";
 ### Sizes
 
 <ComponentShowcase name="spinner-sizes-demo" />
+

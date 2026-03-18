@@ -29,11 +29,8 @@ description: A content container for grouping related information.
       <Step>Install Dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge"
-        pnpmCommand="pnpm add clsx tailwind-merge"
-        yarnCommand="yarn add clsx tailwind-merge"
-        bunCommand="bun add clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="card"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -91,3 +88,4 @@ import {
 ### With Background Images
 
 <ComponentShowcase name="card-with-background-images-demo" />
+

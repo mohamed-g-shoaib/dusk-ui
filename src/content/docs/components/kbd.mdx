@@ -29,11 +29,8 @@ description: Used to display textual user input from keyboard.
       <Step>Install dependencies</Step>
 
       <InstallationCommands
-        type="package-installation"
-        npmCommand="npm install clsx tailwind-merge"
-        pnpmCommand="pnpm add clsx tailwind-merge"
-        yarnCommand="yarn add clsx tailwind-merge"
-        bunCommand="bun add clsx tailwind-merge"
+        type="registry-package-installation"
+        registryPath="kbd"
       />
 
       <Step>Add cn function to your utils</Step>
@@ -49,7 +46,7 @@ description: Used to display textual user input from keyboard.
 
       <Step>Copy and paste the following code into your project</Step>
 
-      <ComponentCodePreview name="label" />
+      <ComponentCodePreview name="kbd" />
     </Steps>
 
   </TabsContent>
@@ -82,3 +79,4 @@ import { Kbd } from "@/components/ui/kbd";
 ### Input Group
 
 <ComponentShowcase name="kbd-input-group-demo" />
+
