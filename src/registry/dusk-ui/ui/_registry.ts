@@ -15,7 +15,7 @@ export const duskUIComponents: Registry["items"] = [
       },
     ],
     registryDependencies: ["classes"],
-    dependencies: ["clsx", "tailwind-merge", "@base-ui/react", "motion"],
+    dependencies: ["clsx", "tailwind-merge", "@base-ui/react"],
   },
 
   // Avatar
