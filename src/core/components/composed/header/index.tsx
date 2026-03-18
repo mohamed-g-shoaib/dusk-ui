@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/classes";
-import { HeaderNav } from "./header-nav";
-import { ThemeToggle } from "../theme-toggle";
-import { DuskUISidebarToggleButton } from "./sidebar-toggle-button";
 import { DuskUILogo } from "../logo";
+import { ThemeToggle } from "../theme-toggle";
 import { GithubButton } from "./github-button";
+import { HeaderNav } from "./header-nav";
+import { DuskUISidebarToggleButton } from "./sidebar-toggle-button";
 
 export function Header() {
   return (
@@ -17,11 +17,14 @@ export function Header() {
 
             <div className="flex items-center gap-1 max-md:hidden">
               <Link href="/" className="flex items-center gap-1">
-                <DuskUILogo className="w-6 h-6 text-primary" />
+                <DuskUILogo
+                  aria-hidden="true"
+                  className="h-6 w-auto shrink-0"
+                />
                 <div
                   className={cn(
                     "[--text-color:linear-gradient(180deg,#555_0%,#000_100%)] dark:[--text-color:linear-gradient(180deg,#fff_0%,#adadad_100%)]",
-                    "bg-clip-text text-transparent bg-(image:--text-color) font-semibold relative text-xl font-chillax"
+                    "bg-clip-text text-transparent bg-(image:--text-color) font-semibold relative text-xl font-chillax",
                   )}
                 >
                   Dusk UI
