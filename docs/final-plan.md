@@ -1,7 +1,7 @@
 # Dusk UI — Final Plan
 
 > All decisions locked. This is the source of truth.
-> Date: March 14, 2026
+> Date: March 18, 2026
 
 ---
 
@@ -52,6 +52,9 @@
 - Production deployment is live at `https://dusk-ui.vercel.app`.
 - Umami is configured via first-party proxy routes (`/metrics/lib.js`, `/metrics/api/send`) to reduce adblocker loss.
 - `next-mdx-remote` is upgraded to `^6.0.0` (security update).
+- Component manual install docs now derive package dependencies from registry metadata instead of handwritten MDX commands.
+- Manual copy flows now surface required dependent Dusk UI building blocks for components with `registryDependencies`.
+- `src/content/docs/installation/manual.mdx` is the shared Dusk UI setup guide, not a superset package install for every component.
 - Repository is pnpm-only:
   - `pnpm-lock.yaml` is the lockfile of record.
   - `package-lock.json` is removed.
@@ -486,6 +489,21 @@ src/registry/dusk-ui/__index__.tsx  (AUTO-GENERATED — never edit)
 registry.json  (public CLI manifest at repo root)
 ```
 
+Component install docs follow the same source of truth:
+
+```
+src/registry/dusk-ui/ui/_registry.ts   (component metadata, deps, registryDependencies)
+        ↓
+src/lib/mdx/installation-commands.ts   (builds manual package install commands)
+        ↓
+src/content/docs/components/*.mdx      (manual install tabs)
+```
+
+Manual install policy:
+- `src/content/docs/installation/manual.mdx` covers shared Dusk UI setup only.
+- Component-specific package installs must come from registry metadata, not handwritten MDX command strings.
+- If a component depends on other local Dusk UI components, the manual docs must show those required files and link users to the related component docs.
+
 ---
 
 ## Component Animation API (Reference)
@@ -537,7 +555,8 @@ reduceMotion?: boolean                 // default: false
 | App-level utilities | `src/lib/classes.ts` |
 | Design tokens | `src/styles/globals.css` |
 | Partial CSS | `src/styles/partials/` |
-| MDX docs | `src/content/{component}.mdx` |
+| Component MDX docs | `src/content/docs/components/{component}.mdx` |
+| Installation MDX docs | `src/content/docs/installation/*.mdx` |
 | Build script | `src/scripts/build-registry.ts` |
 | Analytics | `src/core/events/umami.tsx` |
 | Hooks (doc site) | `src/core/hooks/` |
@@ -552,10 +571,13 @@ For any AI agent or contributor working on this codebase:
 - Read `spec/agent-context.md` before writing any code
 - Never edit `src/registry/dusk-ui/__index__.tsx` — it is auto-generated
 - Never use `motion/react` inside `src/registry/dusk-ui/ui/*` — CSS animations only
+- Never hardcode component package install commands in MDX when registry metadata already defines them
 - Never use CVA — use `tailwind-variants` (`tv()`)
 - Never use `export default` for components — named exports only
 - Never use Tailwind palette colors (`text-gray-500`) — semantic tokens only
 - Always add `data-slot="[part-name]"` to every compound sub-part
+- Always treat registry metadata as the source of truth for both `shadcn add` and component manual install docs
+- Always surface required local Dusk UI dependencies in manual copy flows when a component has `registryDependencies`
 - Always define `cssAnimationPresets` and `cssTransitionPresets` as static objects outside the component function
 - Always add `will-change` + `transform-gpu` on GPU-animated elements
 - Always support `reduceMotion` prop on animated components
